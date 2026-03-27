@@ -1,75 +1,366 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Solutions | Soluções Digitais Estratégicas</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <style>
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Solutions | Soluções Digitais Estratégicas</title>
+    <meta name="description" content="Desenvolvimento web moderno, algoritmos avançados, automação inteligente e análise de dados com Python. Entregamos resultados reais para sua empresa.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .hero-bg {
+            background: linear-gradient(135deg, #0A66C2 0%, #1E3A8A 100%);
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #60A5FA;
+            transform: translateY(-2px);
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+    </style>
 </head>
-<body class="bg-[#F8F9FA] text-[#1C2526]">
+<body class="bg-zinc-950 text-zinc-100">
 
-  <!-- Header -->
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 bg-[#003087] rounded-lg flex items-center justify-center text-white font-bold text-2xl">DS</div>
-        <h1 class="text-2xl font-semibold tracking-tight text-[#003087]">Digital Solutions</h1>
-      </div>
-      
-      <nav class="hidden md:flex items-center gap-8 text-[#455A64] font-medium">
-        <a href="#" class="hover:text-[#003087] transition">Início</a>
-        <a href="#" class="hover:text-[#003087] transition">Serviços</a>
-        <a href="#" class="hover:text-[#003087] transition">Projetos</a>
-        <a href="#" class="hover:text-[#003087] transition">Sobre</a>
-        <a href="#" class="hover:text-[#003087] transition">Contato</a>
-      </nav>
-      
-      <a href="#contato" 
-         class="bg-[#EF2B2D] hover:bg-red-700 text-white font-medium px-6 py-3 rounded-lg transition">
-        Iniciar um projeto
-      </a>
-    </div>
-  </header>
+    <!-- Navbar -->
+    <nav class="bg-zinc-900 border-b border-zinc-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-2xl">DS</div>
+                <h1 class="text-2xl font-semibold tracking-tight">Digital Solutions</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="#servicos" class="nav-link">Serviços</a>
+                <a href="#tecnologias" class="nav-link">Tecnologias</a>
+                <a href="#projetos" class="nav-link">Projetos</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </div>
+            
+            <a href="mailto:contato@digitalsolutions.no" 
+               class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-2xl font-semibold transition-all text-sm flex items-center gap-2">
+                <i class="fas fa-paper-plane"></i>
+                Iniciar Projeto
+            </a>
+        </div>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="bg-[#003087] text-white py-28">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <h2 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6">
-        Soluções digitais estratégicas<br>que geram resultados reais
-      </h2>
-      <p class="max-w-2xl mx-auto text-xl text-blue-100 mb-10">
-        Desenvolvimento web • Algoritmos • Automação de processos • Análise de dados • Software sob medida
-      </p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#contato" 
-           class="bg-[#EF2B2D] hover:bg-red-700 text-white text-lg font-semibold px-10 py-5 rounded-xl transition inline-flex items-center justify-center gap-2">
-          <span>Vamos construir sua solução</span>
-          <i class="fas fa-arrow-right"></i>
-        </a>
+    <!-- Hero Section -->
+    <section class="hero-bg py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-3xl text-sm mb-6">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                </span>
+                Disponível para novos projetos em 2026
+            </div>
+            
+            <h2 class="text-5xl md:text-7xl font-bold leading-tight tracking-tighter max-w-4xl mx-auto">
+                Soluções digitais estratégicas<br>que entregam <span class="text-blue-400">resultados reais</span>
+            </h2>
+            
+            <p class="mt-8 text-xl text-zinc-300 max-w-2xl mx-auto">
+                Desenvolvimento web moderno, algoritmos avançados, automação inteligente e análise de dados com Python.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+                <a href="#contato" 
+                   class="bg-white text-zinc-900 hover:bg-zinc-100 px-10 py-4 rounded-3xl font-semibold text-lg transition-all flex items-center justify-center gap-3">
+                    <i class="fas fa-rocket"></i>
+                    Iniciar um Projeto
+                </a>
+                <a href="#projetos" 
+                   class="border border-white/50 hover:border-white/80 px-10 py-4 rounded-3xl font-semibold text-lg transition-all">
+                    Ver Projetos
+                </a>
+            </div>
+            
+            <div class="mt-16 flex justify-center gap-10 text-sm">
+                <div class="text-center">
+                    <div class="text-3xl font-semibold text-blue-400">50+</div>
+                    <div class="text-zinc-400">Projetos entregues</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-semibold text-blue-400">98%</div>
+                    <div class="text-zinc-400">Taxa de retenção</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-semibold text-blue-400">24h</div>
+                    <div class="text-zinc-400">Resposta média</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="uppercase text-blue-500 tracking-widest text-sm font-semibold">Quem somos</span>
+                    <h2 class="text-4xl font-bold mt-3 leading-tight">Tecnologia sob medida que gera valor mensurável</h2>
+                    <p class="mt-6 text-lg text-zinc-300">
+                        A Digital Solutions desenvolve soluções tecnológicas personalizadas para empresas e instituições que desejam aumentar eficiência, automatizar processos e conquistar vantagem competitiva.
+                    </p>
+                    <p class="mt-6 text-zinc-300">
+                        Combinamos experiência técnica profunda com uma abordagem estratégica, criando sistemas que não apenas funcionam, mas transformam a forma como sua organização opera.
+                    </p>
+                    
+                    <div class="mt-10 grid grid-cols-2 gap-6">
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-emerald-500 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Experiência Técnica Sólida</h4>
+                                <p class="text-sm text-zinc-400">Mais de 8 anos entregando soluções complexas</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fas fa-check-circle text-emerald-500 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold">Foco em Resultados</h4>
+                                <p class="text-sm text-zinc-400">Métricas claras e ROI mensurável em todos os projetos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-zinc-800 rounded-3xl p-8 border border-zinc-700">
+                    <h3 class="text-2xl font-semibold mb-6">Nossa Missão</h3>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Transformar desafios complexos em soluções elegantes, escaláveis e orientadas por dados. 
+                        Acreditamos que a tecnologia deve simplificar operações e impulsionar o crescimento sustentável dos negócios.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Atuação / Serviços -->
+    <section id="servicos" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-blue-500 font-semibold">SERVIÇOS</span>
+                <h2 class="text-4xl font-bold mt-3">Áreas de Atuação</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 card-hover">
+                    <div class="w-12 h-12 bg-blue-600/10 rounded-2xl flex items-center justify-center text-3xl mb-6">🌐</div>
+                    <h3 class="text-2xl font-semibold">Desenvolvimento Web</h3>
+                    <p class="mt-4 text-zinc-400">Sites corporativos, aplicações web e landing pages de alta performance com foco em velocidade, SEO e experiência do usuário.</p>
+                </div>
+                
+                <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 card-hover">
+                    <div class="w-12 h-12 bg-emerald-600/10 rounded-2xl flex items-center justify-center text-3xl mb-6">⚙️</div>
+                    <h3 class="text-2xl font-semibold">Algoritmos & Software Sob Medida</h3>
+                    <p class="mt-4 text-zinc-400">Soluções personalizadas e altamente otimizadas para resolver problemas específicos do seu negócio.</p>
+                </div>
+                
+                <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 card-hover">
+                    <div class="w-12 h-12 bg-amber-600/10 rounded-2xl flex items-center justify-center text-3xl mb-6">🤖</div>
+                    <h3 class="text-2xl font-semibold">Automação de Processos</h3>
+                    <p class="mt-4 text-zinc-400">RPA, scripts inteligentes, integração de sistemas e redução significativa de tarefas repetitivas.</p>
+                </div>
+                
+                <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 card-hover">
+                    <div class="w-12 h-12 bg-purple-600/10 rounded-2xl flex items-center justify-center text-3xl mb-6">📊</div>
+                    <h3 class="text-2xl font-semibold">Análise de Dados & BI</h3>
+                    <p class="mt-4 text-zinc-400">Utilizando Python para coleta, processamento, visualização e suporte à tomada de decisão baseada em dados.</p>
+                </div>
+                
+                <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 card-hover">
+                    <div class="w-12 h-12 bg-rose-600/10 rounded-2xl flex items-center justify-center text-3xl mb-6">🚚</div>
+                    <h3 class="text-2xl font-semibold">Logística & Supply Chain</h3>
+                    <p class="mt-4 text-zinc-400">Ferramentas analíticas avançadas para otimização de rotas, estoque e operações logísticas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnologias -->
+    <section id="tecnologias" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-blue-500 font-semibold">STACK TECNOLÓGICA</span>
+                <h2 class="text-4xl font-bold mt-3">Tecnologias que dominamos</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
+                    <p class="font-semibold text-xl">Python</p>
+                    <p class="text-sm text-zinc-400 mt-1">Pandas • NumPy • Scikit-learn</p>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
+                    <p class="font-semibold text-xl">JavaScript / TypeScript</p>
+                    <p class="text-sm text-zinc-400 mt-1">Moderno e tipado</p>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
+                    <p class="font-semibold text-xl">React / Next.js</p>
+                    <p class="text-sm text-zinc-400 mt-1">Aplicações rápidas e escaláveis</p>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
+                    <p class="font-semibold text-xl">Tailwind CSS</p>
+                    <p class="text-sm text-zinc-400 mt-1">Design moderno e responsivo</p>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
+                    <p class="font-semibold text-xl">Automação</p>
+                    <p class="text-sm text-zinc-400 mt-1">Selenium • Playwright</p>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
+                    <p class="font-semibold text-xl">Banco de Dados</p>
+                    <p class="text-sm text-zinc-400 mt-1">PostgreSQL • SQLite</p>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
+                    <p class="font-semibold text-xl">DevOps</p>
+                    <p class="text-sm text-zinc-400 mt-1">Git • Docker • Linux</p>
+                </div>
+                <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
+                    <p class="font-semibold text-xl">Metodologia</p>
+                    <p class="text-sm text-zinc-400 mt-1">Clean Code • Testes • Documentação</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos em Destaque -->
+    <section id="projetos" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-blue-500 font-semibold">PORTFÓLIO</span>
+                <h2 class="text-4xl font-bold mt-3">Projetos em Destaque</h2>
+            </div>
+            
+            <div class="bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden">
+                <div class="p-10 md:p-16">
+                    <div class="flex flex-col md:flex-row gap-12 items-center">
+                        <div class="flex-1">
+                            <div class="inline-block bg-emerald-500/10 text-emerald-400 text-xs font-medium px-4 py-1.5 rounded-2xl mb-4">2026 Edition</div>
+                            <h3 class="text-4xl font-bold">Safe-Load Analytics</h3>
+                            <p class="mt-6 text-zinc-300 text-lg">
+                                Sistema inteligente de análise e otimização de carga para logística e supply chain. 
+                                Previsão, otimização em tempo real e redução significativa de custos operacionais.
+                            </p>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="bg-zinc-800 text-xs px-4 py-2 rounded-2xl">Python</span>
+                                <span class="bg-zinc-800 text-xs px-4 py-2 rounded-2xl">React</span>
+                                <span class="bg-zinc-800 text-xs px-4 py-2 rounded-2xl">PostgreSQL</span>
+                                <span class="bg-zinc-800 text-xs px-4 py-2 rounded-2xl">Docker</span>
+                            </div>
+                        </div>
+                        <div class="flex-1 bg-zinc-800 aspect-video rounded-3xl flex items-center justify-center text-zinc-500 border border-dashed border-zinc-700">
+                            <p class="text-center">Imagem do projeto<br><span class="text-sm">(adicione sua screenshot aqui)</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center text-zinc-400 mt-10">Mais projetos serão adicionados em breve. Explore nosso GitHub para ver repositórios públicos.</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-indigo-700">
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <h2 class="text-4xl font-bold">Pronto para transformar sua operação com tecnologia?</h2>
+            <p class="mt-6 text-xl text-blue-100">Vamos construir juntos a solução digital que seu negócio precisa.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+                <a href="mailto:contato@digitalsolutions.no" 
+                   class="bg-white text-zinc-900 px-10 py-5 rounded-3xl font-semibold text-lg hover:scale-105 transition-all">
+                    Enviar Mensagem
+                </a>
+                <a href="https://digitalsolutions.no" target="_blank"
+                   class="border-2 border-white/80 hover:bg-white/10 px-10 py-5 rounded-3xl font-semibold text-lg transition-all">
+                    Visitar Website
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-4xl font-bold">Vamos conversar</h2>
+                    <p class="mt-6 text-zinc-300">Estamos disponíveis para consultoria, desenvolvimento sob medida e automação inteligente.</p>
+                    
+                    <div class="mt-12 space-y-8">
+                        <div class="flex gap-4">
+                            <i class="fas fa-envelope text-2xl text-blue-500 mt-1"></i>
+                            <div>
+                                <p class="font-semibold">Email</p>
+                                <a href="mailto:contato@digitalsolutions.no" class="text-blue-400 hover:underline">contato@digitalsolutions.no</a>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fab fa-github text-2xl text-zinc-400 mt-1"></i>
+                            <div>
+                                <p class="font-semibold">GitHub</p>
+                                <a href="https://github.com/seuusuario" target="_blank" class="text-blue-400 hover:underline">@seuusuario</a>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fab fa-linkedin text-2xl text-blue-600 mt-1"></i>
+                            <div>
+                                <p class="font-semibold">LinkedIn</p>
+                                <a href="https://linkedin.com/in/seuperfil" target="_blank" class="text-blue-400 hover:underline">Perfil Profissional</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-zinc-800 rounded-3xl p-10">
+                    <p class="text-sm uppercase tracking-widest text-zinc-400">Website (em breve)</p>
+                    <a href="https://digitalsolutions.no" class="text-3xl font-semibold text-blue-400 hover:text-blue-300">digitalsolutions.no</a>
+                    
+                    <div class="mt-12">
+                        <a href="mailto:contato@digitalsolutions.no" 
+                           class="block w-full bg-blue-600 hover:bg-blue-700 text-center py-6 rounded-3xl font-semibold text-xl transition-all">
+                            Iniciar um Projeto Agora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 text-center text-zinc-400 text-sm">
+            <p>&copy; 2026 Digital Solutions. Todos os direitos reservados.</p>
+            <p class="mt-2">Construindo o futuro digital com precisão e inovação.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
         
-        <a href="#projetos" 
-           class="border-2 border-white/70 hover:bg-white/10 text-white text-lg font-medium px-10 py-5 rounded-xl transition">
-          Ver projetos
-        </a>
-      </div>
-      
-      <div class="mt-16 text-sm text-blue-200 flex items-center justify-center gap-8">
-        <div class="flex items-center gap-2"><i class="fas fa-check"></i> Python Expert</div>
-        <div class="flex items-center gap-2"><i class="fas fa-check"></i> Experiência internacional</div>
-        <div class="flex items-center gap-2"><i class="fas fa-check"></i> Resultados mensuráveis</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Próximas seções virão na sequência -->
-  <section id="servicos" class="py-20 bg-white">
-    <!-- Cards de serviços aqui -->
-  </section>
-
+        // Tailwind script already loaded via CDN
+    </script>
 </body>
 </html>
