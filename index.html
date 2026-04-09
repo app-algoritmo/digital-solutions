@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Solutions | Soluções Digitais Estratégicas</title>
-    <meta name="description" content="Desenvolvimento web moderno, algoritmos avançados, automação inteligente e análise de dados com Python. Entregamos resultados reais para sua empresa.">
+    <title data-i18n="meta.title">Digital Solutions | Strategic Digital Solutions</title>
+    <meta name="description" data-i18n="meta.description" content="Modern web development, advanced algorithms, intelligent automation and data analysis with Python. We deliver real results for your company.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
@@ -27,6 +27,71 @@
             transform: translateY(-12px);
             box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
         }
+
+        /* ── Language Switcher ── */
+        .lang-switcher {
+            position: relative;
+        }
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #e4e4e7;
+            padding: 7px 14px;
+            border-radius: 99px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+            white-space: nowrap;
+        }
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.14);
+            border-color: rgba(255,255,255,0.3);
+        }
+        .lang-btn .flag { font-size: 16px; line-height: 1; }
+        .lang-btn .chevron {
+            font-size: 10px;
+            opacity: 0.7;
+            transition: transform 0.2s;
+        }
+        .lang-switcher.open .chevron { transform: rotate(180deg); }
+
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: #18181b;
+            border: 1px solid #3f3f46;
+            border-radius: 14px;
+            overflow: hidden;
+            min-width: 170px;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        .lang-switcher.open .lang-dropdown { display: block; }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #d4d4d8;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .lang-option:hover { background: #27272a; }
+        .lang-option.active {
+            background: #1d4ed820;
+            color: #60a5fa;
+            font-weight: 700;
+        }
+        .lang-option .flag { font-size: 18px; }
     </style>
 </head>
 <body class="bg-zinc-950 text-zinc-100">
@@ -40,18 +105,40 @@
             </div>
             
             <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#sobre" class="nav-link">Sobre</a>
-                <a href="#servicos" class="nav-link">Serviços</a>
-                <a href="#tecnologias" class="nav-link">Tecnologias</a>
-                <a href="#projetos" class="nav-link">Projetos</a>
-                <a href="#contato" class="nav-link">Contato</a>
+                <a href="#sobre" class="nav-link" data-i18n="nav.about">About</a>
+                <a href="#servicos" class="nav-link" data-i18n="nav.services">Services</a>
+                <a href="#tecnologias" class="nav-link" data-i18n="nav.tech">Technologies</a>
+                <a href="#projetos" class="nav-link" data-i18n="nav.projects">Projects</a>
+                <a href="#contato" class="nav-link" data-i18n="nav.contact">Contact</a>
             </div>
             
-            <a href="mailto:contato@digitalsolutions.no" 
-               class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-2xl font-semibold transition-all text-sm flex items-center gap-2">
-                <i class="fas fa-paper-plane"></i>
-                Iniciar Projeto
-            </a>
+            <div class="flex items-center gap-3">
+                <!-- Language Switcher -->
+                <div class="lang-switcher" id="langSwitcher">
+                    <button class="lang-btn" id="langBtn" aria-label="Select language">
+                        <span class="flag" id="currentFlag">🇺🇸</span>
+                        <span id="currentLangLabel">EN</span>
+                        <span class="chevron">▼</span>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <div class="lang-option" data-lang="en">
+                            <span class="flag">🇺🇸</span> English
+                        </div>
+                        <div class="lang-option" data-lang="pt">
+                            <span class="flag">🇧🇷</span> Português
+                        </div>
+                        <div class="lang-option" data-lang="no">
+                            <span class="flag">🇳🇴</span> Norsk
+                        </div>
+                    </div>
+                </div>
+
+                <a href="mailto:contato@digitalsolutions.no" 
+                   class="hidden sm:flex bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-2xl font-semibold transition-all text-sm items-center gap-2">
+                    <i class="fas fa-paper-plane"></i>
+                    <span data-i18n="nav.cta">Start Project</span>
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -63,41 +150,41 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
                 </span>
-                Disponível para novos projetos em 2026
+                <span data-i18n="hero.badge">Available for new projects in 2026</span>
             </div>
             
             <h2 class="text-5xl md:text-7xl font-bold leading-tight tracking-tighter max-w-4xl mx-auto">
-                Soluções digitais estratégicas<br>que entregam <span class="text-blue-400">resultados reais</span>
+                <span data-i18n="hero.h2a">Strategic digital solutions</span><br>
+                <span data-i18n="hero.h2b">that deliver </span><span class="text-blue-400" data-i18n="hero.h2c">real results</span>
             </h2>
             
-            <p class="mt-8 text-xl text-zinc-300 max-w-2xl mx-auto">
-                Desenvolvimento web moderno, algoritmos avançados, automação inteligente e análise de dados com Python.
+            <p class="mt-8 text-xl text-zinc-300 max-w-2xl mx-auto" data-i18n="hero.sub">
+                Modern web development, advanced algorithms, intelligent automation and data analysis with Python.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12">
                 <a href="#contato" 
                    class="bg-white text-zinc-900 hover:bg-zinc-100 px-10 py-4 rounded-3xl font-semibold text-lg transition-all flex items-center justify-center gap-3">
                     <i class="fas fa-rocket"></i>
-                    Iniciar um Projeto
+                    <span data-i18n="hero.btn1">Start a Project</span>
                 </a>
                 <a href="#projetos" 
-                   class="border border-white/50 hover:border-white/80 px-10 py-4 rounded-3xl font-semibold text-lg transition-all">
-                    Ver Projetos
-                </a>
+                   class="border border-white/50 hover:border-white/80 px-10 py-4 rounded-3xl font-semibold text-lg transition-all"
+                   data-i18n="hero.btn2">View Projects</a>
             </div>
             
             <div class="mt-16 flex justify-center gap-10 text-sm">
                 <div class="text-center">
                     <div class="text-3xl font-semibold text-blue-400">50+</div>
-                    <div class="text-zinc-400">Projetos entregues</div>
+                    <div class="text-zinc-400" data-i18n="hero.stat1">Projects delivered</div>
                 </div>
                 <div class="text-center">
                     <div class="text-3xl font-semibold text-blue-400">98%</div>
-                    <div class="text-zinc-400">Taxa de retenção</div>
+                    <div class="text-zinc-400" data-i18n="hero.stat2">Retention rate</div>
                 </div>
                 <div class="text-center">
                     <div class="text-3xl font-semibold text-blue-400">24h</div>
-                    <div class="text-zinc-400">Resposta média</div>
+                    <div class="text-zinc-400" data-i18n="hero.stat3">Average response</div>
                 </div>
             </div>
         </div>
@@ -108,81 +195,80 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div>
-                    <span class="uppercase text-blue-500 tracking-widest text-sm font-semibold">Quem somos</span>
-                    <h2 class="text-4xl font-bold mt-3 leading-tight">Tecnologia sob medida que gera valor mensurável</h2>
-                    <p class="mt-6 text-lg text-zinc-300">
-                        A Digital Solutions desenvolve soluções tecnológicas personalizadas para empresas e instituições que desejam aumentar eficiência, automatizar processos e conquistar vantagem competitiva.
+                    <span class="uppercase text-blue-500 tracking-widest text-sm font-semibold" data-i18n="about.label">Who we are</span>
+                    <h2 class="text-4xl font-bold mt-3 leading-tight" data-i18n="about.h2">Custom technology that generates measurable value</h2>
+                    <p class="mt-6 text-lg text-zinc-300" data-i18n="about.p1">
+                        Digital Solutions develops customized technology solutions for companies and institutions seeking to increase efficiency, automate processes, and gain competitive advantage.
                     </p>
-                    <p class="mt-6 text-zinc-300">
-                        Combinamos experiência técnica profunda com uma abordagem estratégica, criando sistemas que não apenas funcionam, mas transformam a forma como sua organização opera.
+                    <p class="mt-6 text-zinc-300" data-i18n="about.p2">
+                        We combine deep technical expertise with a strategic approach, creating systems that not only work, but transform the way your organization operates.
                     </p>
                     
                     <div class="mt-10 grid grid-cols-2 gap-6">
                         <div class="flex gap-4">
                             <i class="fas fa-check-circle text-emerald-500 text-2xl mt-1"></i>
                             <div>
-                                <h4 class="font-semibold">Experiência Técnica Sólida</h4>
-                                <p class="text-sm text-zinc-400">Mais de 8 anos entregando soluções complexas</p>
+                                <h4 class="font-semibold" data-i18n="about.feat1.title">Solid Technical Experience</h4>
+                                <p class="text-sm text-zinc-400" data-i18n="about.feat1.sub">Over 8 years delivering complex solutions</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
                             <i class="fas fa-check-circle text-emerald-500 text-2xl mt-1"></i>
                             <div>
-                                <h4 class="font-semibold">Foco em Resultados</h4>
-                                <p class="text-sm text-zinc-400">Métricas claras e ROI mensurável em todos os projetos</p>
+                                <h4 class="font-semibold" data-i18n="about.feat2.title">Results-Focused</h4>
+                                <p class="text-sm text-zinc-400" data-i18n="about.feat2.sub">Clear metrics and measurable ROI on all projects</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="bg-zinc-800 rounded-3xl p-8 border border-zinc-700">
-                    <h3 class="text-2xl font-semibold mb-6">Nossa Missão</h3>
-                    <p class="text-zinc-400 leading-relaxed">
-                        Transformar desafios complexos em soluções elegantes, escaláveis e orientadas por dados. 
-                        Acreditamos que a tecnologia deve simplificar operações e impulsionar o crescimento sustentável dos negócios.
+                    <h3 class="text-2xl font-semibold mb-6" data-i18n="about.mission.title">Our Mission</h3>
+                    <p class="text-zinc-400 leading-relaxed" data-i18n="about.mission.body">
+                        Transform complex challenges into elegant, scalable and data-driven solutions. We believe technology should simplify operations and drive sustainable business growth.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Áreas de Atuação / Serviços -->
+    <!-- Serviços -->
     <section id="servicos" class="py-24">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-blue-500 font-semibold">SERVIÇOS</span>
-                <h2 class="text-4xl font-bold mt-3">Áreas de Atuação</h2>
+                <span class="text-blue-500 font-semibold" data-i18n="services.label">SERVICES</span>
+                <h2 class="text-4xl font-bold mt-3" data-i18n="services.h2">Areas of Expertise</h2>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 card-hover">
                     <div class="w-12 h-12 bg-blue-600/10 rounded-2xl flex items-center justify-center text-3xl mb-6">🌐</div>
-                    <h3 class="text-2xl font-semibold">Desenvolvimento Web</h3>
-                    <p class="mt-4 text-zinc-400">Sites corporativos, aplicações web e landing pages de alta performance com foco em velocidade, SEO e experiência do usuário.</p>
+                    <h3 class="text-2xl font-semibold" data-i18n="services.s1.title">Web Development</h3>
+                    <p class="mt-4 text-zinc-400" data-i18n="services.s1.body">Corporate websites, web applications and high-performance landing pages focused on speed, SEO and user experience.</p>
                 </div>
                 
                 <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 card-hover">
                     <div class="w-12 h-12 bg-emerald-600/10 rounded-2xl flex items-center justify-center text-3xl mb-6">⚙️</div>
-                    <h3 class="text-2xl font-semibold">Algoritmos & Software Sob Medida</h3>
-                    <p class="mt-4 text-zinc-400">Soluções personalizadas e altamente otimizadas para resolver problemas específicos do seu negócio.</p>
+                    <h3 class="text-2xl font-semibold" data-i18n="services.s2.title">Algorithms & Custom Software</h3>
+                    <p class="mt-4 text-zinc-400" data-i18n="services.s2.body">Personalized and highly optimized solutions to solve specific business problems.</p>
                 </div>
                 
                 <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 card-hover">
                     <div class="w-12 h-12 bg-amber-600/10 rounded-2xl flex items-center justify-center text-3xl mb-6">🤖</div>
-                    <h3 class="text-2xl font-semibold">Automação de Processos</h3>
-                    <p class="mt-4 text-zinc-400">RPA, scripts inteligentes, integração de sistemas e redução significativa de tarefas repetitivas.</p>
+                    <h3 class="text-2xl font-semibold" data-i18n="services.s3.title">Process Automation</h3>
+                    <p class="mt-4 text-zinc-400" data-i18n="services.s3.body">RPA, intelligent scripts, system integration and significant reduction of repetitive tasks.</p>
                 </div>
                 
                 <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 card-hover">
                     <div class="w-12 h-12 bg-purple-600/10 rounded-2xl flex items-center justify-center text-3xl mb-6">📊</div>
-                    <h3 class="text-2xl font-semibold">Análise de Dados & BI</h3>
-                    <p class="mt-4 text-zinc-400">Utilizando Python para coleta, processamento, visualização e suporte à tomada de decisão baseada em dados.</p>
+                    <h3 class="text-2xl font-semibold" data-i18n="services.s4.title">Data Analysis & BI</h3>
+                    <p class="mt-4 text-zinc-400" data-i18n="services.s4.body">Using Python for collection, processing, visualization and data-driven decision support.</p>
                 </div>
                 
                 <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 card-hover">
                     <div class="w-12 h-12 bg-rose-600/10 rounded-2xl flex items-center justify-center text-3xl mb-6">🚚</div>
-                    <h3 class="text-2xl font-semibold">Logística & Supply Chain</h3>
-                    <p class="mt-4 text-zinc-400">Ferramentas analíticas avançadas para otimização de rotas, estoque e operações logísticas.</p>
+                    <h3 class="text-2xl font-semibold" data-i18n="services.s5.title">Logistics & Supply Chain</h3>
+                    <p class="mt-4 text-zinc-400" data-i18n="services.s5.body">Advanced analytical tools for route optimization, inventory and logistics operations.</p>
                 </div>
             </div>
         </div>
@@ -192,8 +278,8 @@
     <section id="tecnologias" class="py-24 bg-zinc-900">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-blue-500 font-semibold">STACK TECNOLÓGICA</span>
-                <h2 class="text-4xl font-bold mt-3">Tecnologias que dominamos</h2>
+                <span class="text-blue-500 font-semibold" data-i18n="tech.label">TECH STACK</span>
+                <h2 class="text-4xl font-bold mt-3" data-i18n="tech.h2">Technologies we master</h2>
             </div>
             
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -203,22 +289,22 @@
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
                     <p class="font-semibold text-xl">JavaScript / TypeScript</p>
-                    <p class="text-sm text-zinc-400 mt-1">Moderno e tipado</p>
+                    <p class="text-sm text-zinc-400 mt-1" data-i18n="tech.t2">Modern and typed</p>
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
                     <p class="font-semibold text-xl">React / Next.js</p>
-                    <p class="text-sm text-zinc-400 mt-1">Aplicações rápidas e escaláveis</p>
+                    <p class="text-sm text-zinc-400 mt-1" data-i18n="tech.t3">Fast and scalable apps</p>
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
                     <p class="font-semibold text-xl">Tailwind CSS</p>
-                    <p class="text-sm text-zinc-400 mt-1">Design moderno e responsivo</p>
+                    <p class="text-sm text-zinc-400 mt-1" data-i18n="tech.t4">Modern, responsive design</p>
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
-                    <p class="font-semibold text-xl">Automação</p>
+                    <p class="font-semibold text-xl" data-i18n="tech.t5.title">Automation</p>
                     <p class="text-sm text-zinc-400 mt-1">Selenium • Playwright</p>
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
-                    <p class="font-semibold text-xl">Banco de Dados</p>
+                    <p class="font-semibold text-xl" data-i18n="tech.t6.title">Database</p>
                     <p class="text-sm text-zinc-400 mt-1">PostgreSQL • SQLite</p>
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
@@ -226,8 +312,8 @@
                     <p class="text-sm text-zinc-400 mt-1">Git • Docker • Linux</p>
                 </div>
                 <div class="bg-zinc-800 rounded-3xl p-6 text-center card-hover">
-                    <p class="font-semibold text-xl">Metodologia</p>
-                    <p class="text-sm text-zinc-400 mt-1">Clean Code • Testes • Documentação</p>
+                    <p class="font-semibold text-xl" data-i18n="tech.t8.title">Methodology</p>
+                    <p class="text-sm text-zinc-400 mt-1" data-i18n="tech.t8.sub">Clean Code • Tests • Docs</p>
                 </div>
             </div>
         </div>
@@ -237,8 +323,8 @@
     <section id="projetos" class="py-24">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <span class="text-blue-500 font-semibold">PORTFÓLIO</span>
-                <h2 class="text-4xl font-bold mt-3">Projetos em Destaque</h2>
+                <span class="text-blue-500 font-semibold" data-i18n="projects.label">PORTFOLIO</span>
+                <h2 class="text-4xl font-bold mt-3" data-i18n="projects.h2">Featured Projects</h2>
             </div>
             
             <div class="bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden">
@@ -247,9 +333,8 @@
                         <div class="flex-1">
                             <div class="inline-block bg-emerald-500/10 text-emerald-400 text-xs font-medium px-4 py-1.5 rounded-2xl mb-4">2026 Edition</div>
                             <h3 class="text-4xl font-bold">Safe-Load Analytics</h3>
-                            <p class="mt-6 text-zinc-300 text-lg">
-                                Sistema inteligente para análise de risco biomecânico e otimização de custos de saúde no transporte e na logística.
-                                Predição de lesões em tempo real e conformidade regulatória impulsionada por IA para o setor.
+                            <p class="mt-6 text-zinc-300 text-lg" data-i18n="projects.sala.body">
+                                Intelligent system for biomechanical risk analysis and healthcare cost optimization in transport and logistics. Real-time injury prediction and AI-driven regulatory compliance for the sector.
                             </p>
                             <div class="mt-8 flex flex-wrap gap-3">
                                 <span class="bg-zinc-800 text-xs px-4 py-2 rounded-2xl">Python</span>
@@ -258,35 +343,32 @@
                                 <span class="bg-zinc-800 text-xs px-4 py-2 rounded-2xl">Docker</span>
                             </div>
                         </div>
-                       <!-- IMAGE SAFE-LOAD ANALYTICS - -->
                         <div class="flex-1">
                             <img src="https://github.com/app-algoritmo/digital-solutions/blob/main/-sala-dashboard-1.jpeg?raw=true" 
-                                 alt="Safe-Load Analytics - Dashboard de Otimização de Carga"
+                                 alt="Safe-Load Analytics - Dashboard"
                                  class="project-image w-full rounded-3xl shadow-2xl border border-zinc-700 object-cover">
                         </div>
                     </div>
                 </div>
             </div>
             
-            <p class="text-center text-zinc-400 mt-10">Mais projetos serão adicionados em breve. Explore nosso GitHub para ver repositórios públicos.</p>
+            <p class="text-center text-zinc-400 mt-10" data-i18n="projects.more">More projects coming soon. Explore our GitHub for public repositories.</p>
         </div>
     </section>
 
     <!-- CTA -->
     <section class="py-20 bg-gradient-to-r from-blue-600 to-indigo-700">
         <div class="max-w-4xl mx-auto text-center px-6">
-            <h2 class="text-4xl font-bold">Pronto para transformar sua operação com tecnologia?</h2>
-            <p class="mt-6 text-xl text-blue-100">Vamos construir juntos a solução digital que seu negócio precisa.</p>
+            <h2 class="text-4xl font-bold" data-i18n="cta.h2">Ready to transform your operations with technology?</h2>
+            <p class="mt-6 text-xl text-blue-100" data-i18n="cta.sub">Let's build together the digital solution your business needs.</p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12">
                 <a href="https://forms.gle/h9eb2xuuDEWSDRACA" 
-                   class="bg-white text-zinc-900 px-10 py-5 rounded-3xl font-semibold text-lg hover:scale-105 transition-all">
-                    Enviar Mensagem
-                </a>
+                   class="bg-white text-zinc-900 px-10 py-5 rounded-3xl font-semibold text-lg hover:scale-105 transition-all"
+                   data-i18n="cta.btn1">Send Message</a>
                 <a href="https://forms.gle/h9eb2xuuDEWSDRACA" target="_blank"
-                   class="border-2 border-white/80 hover:bg-white/10 px-10 py-5 rounded-3xl font-semibold text-lg transition-all">
-                    Visitar Website
-                </a>
+                   class="border-2 border-white/80 hover:bg-white/10 px-10 py-5 rounded-3xl font-semibold text-lg transition-all"
+                   data-i18n="cta.btn2">Visit Website</a>
             </div>
         </div>
     </section>
@@ -296,8 +378,8 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16">
                 <div>
-                    <h2 class="text-4xl font-bold">Vamos conversar</h2>
-                    <p class="mt-6 text-zinc-300">Estamos disponíveis para consultoria, desenvolvimento sob medida e automação inteligente.</p>
+                    <h2 class="text-4xl font-bold" data-i18n="contact.h2">Let's talk</h2>
+                    <p class="mt-6 text-zinc-300" data-i18n="contact.sub">We're available for consulting, custom development and intelligent automation.</p>
                     
                     <div class="mt-12 space-y-8">
                         <div class="flex gap-4">
@@ -318,21 +400,20 @@
                             <i class="fab fa-linkedin text-2xl text-blue-600 mt-1"></i>
                             <div>
                                 <p class="font-semibold">LinkedIn</p>
-                                <a href="https://www.linkedin.com/in/paulofernandodebarros/" target="_blank" class="text-blue-400 hover:underline">Perfil Profissional</a>
+                                <a href="https://www.linkedin.com/in/paulofernandodebarros/" target="_blank" class="text-blue-400 hover:underline" data-i18n="contact.linkedin">Professional Profile</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="bg-zinc-800 rounded-3xl p-10">
-                    <p class="text-sm uppercase tracking-widest text-zinc-400">Formulário </p>
+                    <p class="text-sm uppercase tracking-widest text-zinc-400" data-i18n="contact.form.label">Form</p>
                     <a href="https://forms.gle/ThZg8jLxdWbVWBfZA" class="text-3xl font-semibold text-blue-400 hover:text-blue-300">Digital Solutions</a>
                     
                     <div class="mt-12">
                         <a href="https://forms.gle/ThZg8jLxdWbVWBfZA" 
-                           class="block w-full bg-blue-600 hover:bg-blue-700 text-center py-6 rounded-3xl font-semibold text-xl transition-all">
-                            Iniciar um Projeto Agora
-                        </a>
+                           class="block w-full bg-blue-600 hover:bg-blue-700 text-center py-6 rounded-3xl font-semibold text-xl transition-all"
+                           data-i18n="contact.form.btn">Start a Project Now</a>
                     </div>
                 </div>
             </div>
@@ -342,28 +423,315 @@
     <!-- Footer -->
     <footer class="bg-black py-12 border-t border-zinc-800">
         <div class="max-w-7xl mx-auto px-6 text-center text-zinc-400 text-sm">
-            <p>&copy; 2026 Digital Solutions. Todos os direitos reservados.</p>
-            <p class="mt-2">Construindo o futuro digital com precisão e inovação.</p>
+            <p>&copy; 2026 Digital Solutions. <span data-i18n="footer.rights">All rights reserved.</span></p>
+            <p class="mt-2" data-i18n="footer.tagline">Building the digital future with precision and innovation.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scroll for anchor links
+        // ═══════════════════════════════════════════════
+        //  i18n — Translation Dictionary
+        // ═══════════════════════════════════════════════
+        const translations = {
+            en: {
+                "meta.title": "Digital Solutions | Strategic Digital Solutions",
+                "meta.description": "Modern web development, advanced algorithms, intelligent automation and data analysis with Python. We deliver real results for your company.",
+                "nav.about": "About",
+                "nav.services": "Services",
+                "nav.tech": "Technologies",
+                "nav.projects": "Projects",
+                "nav.contact": "Contact",
+                "nav.cta": "Start Project",
+                "hero.badge": "Available for new projects in 2026",
+                "hero.h2a": "Strategic digital solutions",
+                "hero.h2b": "that deliver ",
+                "hero.h2c": "real results",
+                "hero.sub": "Modern web development, advanced algorithms, intelligent automation and data analysis with Python.",
+                "hero.btn1": "Start a Project",
+                "hero.btn2": "View Projects",
+                "hero.stat1": "Projects delivered",
+                "hero.stat2": "Retention rate",
+                "hero.stat3": "Average response",
+                "about.label": "Who we are",
+                "about.h2": "Custom technology that generates measurable value",
+                "about.p1": "Digital Solutions develops customized technology solutions for companies and institutions seeking to increase efficiency, automate processes, and gain competitive advantage.",
+                "about.p2": "We combine deep technical expertise with a strategic approach, creating systems that not only work, but transform the way your organization operates.",
+                "about.feat1.title": "Solid Technical Experience",
+                "about.feat1.sub": "Over 8 years delivering complex solutions",
+                "about.feat2.title": "Results-Focused",
+                "about.feat2.sub": "Clear metrics and measurable ROI on all projects",
+                "about.mission.title": "Our Mission",
+                "about.mission.body": "Transform complex challenges into elegant, scalable and data-driven solutions. We believe technology should simplify operations and drive sustainable business growth.",
+                "services.label": "SERVICES",
+                "services.h2": "Areas of Expertise",
+                "services.s1.title": "Web Development",
+                "services.s1.body": "Corporate websites, web applications and high-performance landing pages focused on speed, SEO and user experience.",
+                "services.s2.title": "Algorithms & Custom Software",
+                "services.s2.body": "Personalized and highly optimized solutions to solve specific business problems.",
+                "services.s3.title": "Process Automation",
+                "services.s3.body": "RPA, intelligent scripts, system integration and significant reduction of repetitive tasks.",
+                "services.s4.title": "Data Analysis & BI",
+                "services.s4.body": "Using Python for collection, processing, visualization and data-driven decision support.",
+                "services.s5.title": "Logistics & Supply Chain",
+                "services.s5.body": "Advanced analytical tools for route optimization, inventory and logistics operations.",
+                "tech.label": "TECH STACK",
+                "tech.h2": "Technologies we master",
+                "tech.t2": "Modern and typed",
+                "tech.t3": "Fast and scalable apps",
+                "tech.t4": "Modern, responsive design",
+                "tech.t5.title": "Automation",
+                "tech.t6.title": "Database",
+                "tech.t8.title": "Methodology",
+                "tech.t8.sub": "Clean Code • Tests • Docs",
+                "projects.label": "PORTFOLIO",
+                "projects.h2": "Featured Projects",
+                "projects.sala.body": "Intelligent system for biomechanical risk analysis and healthcare cost optimization in transport and logistics. Real-time injury prediction and AI-driven regulatory compliance for the sector.",
+                "projects.more": "More projects coming soon. Explore our GitHub for public repositories.",
+                "cta.h2": "Ready to transform your operations with technology?",
+                "cta.sub": "Let's build together the digital solution your business needs.",
+                "cta.btn1": "Send Message",
+                "cta.btn2": "Visit Website",
+                "contact.h2": "Let's talk",
+                "contact.sub": "We're available for consulting, custom development and intelligent automation.",
+                "contact.linkedin": "Professional Profile",
+                "contact.form.label": "Form",
+                "contact.form.btn": "Start a Project Now",
+                "footer.rights": "All rights reserved.",
+                "footer.tagline": "Building the digital future with precision and innovation."
+            },
+            pt: {
+                "meta.title": "Digital Solutions | Soluções Digitais Estratégicas",
+                "meta.description": "Desenvolvimento web moderno, algoritmos avançados, automação inteligente e análise de dados com Python. Entregamos resultados reais para sua empresa.",
+                "nav.about": "Sobre",
+                "nav.services": "Serviços",
+                "nav.tech": "Tecnologias",
+                "nav.projects": "Projetos",
+                "nav.contact": "Contato",
+                "nav.cta": "Iniciar Projeto",
+                "hero.badge": "Disponível para novos projetos em 2026",
+                "hero.h2a": "Soluções digitais estratégicas",
+                "hero.h2b": "que entregam ",
+                "hero.h2c": "resultados reais",
+                "hero.sub": "Desenvolvimento web moderno, algoritmos avançados, automação inteligente e análise de dados com Python.",
+                "hero.btn1": "Iniciar um Projeto",
+                "hero.btn2": "Ver Projetos",
+                "hero.stat1": "Projetos entregues",
+                "hero.stat2": "Taxa de retenção",
+                "hero.stat3": "Resposta média",
+                "about.label": "Quem somos",
+                "about.h2": "Tecnologia sob medida que gera valor mensurável",
+                "about.p1": "A Digital Solutions desenvolve soluções tecnológicas personalizadas para empresas e instituições que desejam aumentar eficiência, automatizar processos e conquistar vantagem competitiva.",
+                "about.p2": "Combinamos experiência técnica profunda com uma abordagem estratégica, criando sistemas que não apenas funcionam, mas transformam a forma como sua organização opera.",
+                "about.feat1.title": "Experiência Técnica Sólida",
+                "about.feat1.sub": "Mais de 8 anos entregando soluções complexas",
+                "about.feat2.title": "Foco em Resultados",
+                "about.feat2.sub": "Métricas claras e ROI mensurável em todos os projetos",
+                "about.mission.title": "Nossa Missão",
+                "about.mission.body": "Transformar desafios complexos em soluções elegantes, escaláveis e orientadas por dados. Acreditamos que a tecnologia deve simplificar operações e impulsionar o crescimento sustentável dos negócios.",
+                "services.label": "SERVIÇOS",
+                "services.h2": "Áreas de Atuação",
+                "services.s1.title": "Desenvolvimento Web",
+                "services.s1.body": "Sites corporativos, aplicações web e landing pages de alta performance com foco em velocidade, SEO e experiência do usuário.",
+                "services.s2.title": "Algoritmos & Software Sob Medida",
+                "services.s2.body": "Soluções personalizadas e altamente otimizadas para resolver problemas específicos do seu negócio.",
+                "services.s3.title": "Automação de Processos",
+                "services.s3.body": "RPA, scripts inteligentes, integração de sistemas e redução significativa de tarefas repetitivas.",
+                "services.s4.title": "Análise de Dados & BI",
+                "services.s4.body": "Utilizando Python para coleta, processamento, visualização e suporte à tomada de decisão baseada em dados.",
+                "services.s5.title": "Logística & Supply Chain",
+                "services.s5.body": "Ferramentas analíticas avançadas para otimização de rotas, estoque e operações logísticas.",
+                "tech.label": "STACK TECNOLÓGICA",
+                "tech.h2": "Tecnologias que dominamos",
+                "tech.t2": "Moderno e tipado",
+                "tech.t3": "Aplicações rápidas e escaláveis",
+                "tech.t4": "Design moderno e responsivo",
+                "tech.t5.title": "Automação",
+                "tech.t6.title": "Banco de Dados",
+                "tech.t8.title": "Metodologia",
+                "tech.t8.sub": "Clean Code • Testes • Documentação",
+                "projects.label": "PORTFÓLIO",
+                "projects.h2": "Projetos em Destaque",
+                "projects.sala.body": "Sistema inteligente para análise de risco biomecânico e otimização de custos de saúde no transporte e na logística. Predição de lesões em tempo real e conformidade regulatória impulsionada por IA para o setor.",
+                "projects.more": "Mais projetos serão adicionados em breve. Explore nosso GitHub para ver repositórios públicos.",
+                "cta.h2": "Pronto para transformar sua operação com tecnologia?",
+                "cta.sub": "Vamos construir juntos a solução digital que seu negócio precisa.",
+                "cta.btn1": "Enviar Mensagem",
+                "cta.btn2": "Visitar Website",
+                "contact.h2": "Vamos conversar",
+                "contact.sub": "Estamos disponíveis para consultoria, desenvolvimento sob medida e automação inteligente.",
+                "contact.linkedin": "Perfil Profissional",
+                "contact.form.label": "Formulário",
+                "contact.form.btn": "Iniciar um Projeto Agora",
+                "footer.rights": "Todos os direitos reservados.",
+                "footer.tagline": "Construindo o futuro digital com precisão e inovação."
+            },
+            no: {
+                "meta.title": "Digital Solutions | Strategiske Digitale Løsninger",
+                "meta.description": "Moderne webutvikling, avanserte algoritmer, intelligent automatisering og dataanalyse med Python. Vi leverer reelle resultater for din bedrift.",
+                "nav.about": "Om oss",
+                "nav.services": "Tjenester",
+                "nav.tech": "Teknologier",
+                "nav.projects": "Prosjekter",
+                "nav.contact": "Kontakt",
+                "nav.cta": "Start Prosjekt",
+                "hero.badge": "Tilgjengelig for nye prosjekter i 2026",
+                "hero.h2a": "Strategiske digitale løsninger",
+                "hero.h2b": "som leverer ",
+                "hero.h2c": "reelle resultater",
+                "hero.sub": "Moderne webutvikling, avanserte algoritmer, intelligent automatisering og dataanalyse med Python.",
+                "hero.btn1": "Start et Prosjekt",
+                "hero.btn2": "Se Prosjekter",
+                "hero.stat1": "Leverte prosjekter",
+                "hero.stat2": "Retensjonsrate",
+                "hero.stat3": "Gjennomsnittlig respons",
+                "about.label": "Hvem vi er",
+                "about.h2": "Skreddersydd teknologi som skaper målbar verdi",
+                "about.p1": "Digital Solutions utvikler tilpassede teknologiløsninger for bedrifter og institusjoner som ønsker å øke effektivitet, automatisere prosesser og oppnå konkurransefordeler.",
+                "about.p2": "Vi kombinerer dyp teknisk kompetanse med en strategisk tilnærming og skaper systemer som ikke bare fungerer, men som transformerer måten organisasjonen din opererer på.",
+                "about.feat1.title": "Solid Teknisk Erfaring",
+                "about.feat1.sub": "Over 8 år med levering av komplekse løsninger",
+                "about.feat2.title": "Resultatorientert",
+                "about.feat2.sub": "Klare måleparametere og målbar ROI på alle prosjekter",
+                "about.mission.title": "Vårt Oppdrag",
+                "about.mission.body": "Transformere komplekse utfordringer til elegante, skalerbare og datadrevne løsninger. Vi tror teknologi skal forenkle drift og drive bærekraftig forretningsvekst.",
+                "services.label": "TJENESTER",
+                "services.h2": "Fagområder",
+                "services.s1.title": "Webutvikling",
+                "services.s1.body": "Bedriftsnettsteder, webapplikasjoner og høyytelsessider med fokus på hastighet, SEO og brukeropplevelse.",
+                "services.s2.title": "Algoritmer & Skreddersydd Programvare",
+                "services.s2.body": "Personaliserte og høyt optimaliserte løsninger for å løse spesifikke forretningsproblemer.",
+                "services.s3.title": "Prosessautomatisering",
+                "services.s3.body": "RPA, intelligente skript, systemintegrasjon og betydelig reduksjon av repetitive oppgaver.",
+                "services.s4.title": "Dataanalyse & BI",
+                "services.s4.body": "Bruk av Python for innsamling, behandling, visualisering og datadrevet beslutningsstøtte.",
+                "services.s5.title": "Logistikk & Forsyningskjede",
+                "services.s5.body": "Avanserte analytiske verktøy for ruteoptimalisering, lagerbeholdning og logistikkoperasjoner.",
+                "tech.label": "TEKNOLOGISTACK",
+                "tech.h2": "Teknologier vi behersker",
+                "tech.t2": "Moderne og typet",
+                "tech.t3": "Raske og skalerbare apper",
+                "tech.t4": "Moderne, responsivt design",
+                "tech.t5.title": "Automatisering",
+                "tech.t6.title": "Database",
+                "tech.t8.title": "Metodikk",
+                "tech.t8.sub": "Ren kode • Tester • Dokumentasjon",
+                "projects.label": "PORTEFØLJE",
+                "projects.h2": "Utvalgte Prosjekter",
+                "projects.sala.body": "Intelligent system for biomekanisk risikoanalyse og optimalisering av helsekostnader innen transport og logistikk. Sanntidsprediksjon av skader og AI-drevet regulatorisk overholdelse for sektoren.",
+                "projects.more": "Flere prosjekter kommer snart. Utforsk vår GitHub for offentlige repositorier.",
+                "cta.h2": "Klar til å transformere driften med teknologi?",
+                "cta.sub": "La oss bygge den digitale løsningen bedriften din trenger, sammen.",
+                "cta.btn1": "Send Melding",
+                "cta.btn2": "Besøk Nettsted",
+                "contact.h2": "La oss snakke",
+                "contact.sub": "Vi er tilgjengelige for rådgivning, skreddersydd utvikling og intelligent automatisering.",
+                "contact.linkedin": "Profesjonell Profil",
+                "contact.form.label": "Skjema",
+                "contact.form.btn": "Start et Prosjekt Nå",
+                "footer.rights": "Alle rettigheter forbeholdt.",
+                "footer.tagline": "Bygger den digitale fremtiden med presisjon og innovasjon."
+            }
+        };
+
+        // ═══════════════════════════════════════════════
+        //  Language config
+        // ═══════════════════════════════════════════════
+        const langMeta = {
+            en: { flag: "🇺🇸", label: "EN", htmlLang: "en" },
+            pt: { flag: "🇧🇷", label: "PT", htmlLang: "pt-BR" },
+            no: { flag: "🇳🇴", label: "NO", htmlLang: "nb" }
+        };
+
+        // ═══════════════════════════════════════════════
+        //  Detect language: stored > browser > default en
+        // ═══════════════════════════════════════════════
+        function detectLanguage() {
+            const stored = localStorage.getItem("ds-lang");
+            if (stored && translations[stored]) return stored;
+
+            const browser = (navigator.language || navigator.userLanguage || "en").toLowerCase();
+            if (browser.startsWith("pt")) return "pt";
+            if (browser.startsWith("nb") || browser.startsWith("nn") || browser.startsWith("no")) return "no";
+            return "en";
+        }
+
+        // ═══════════════════════════════════════════════
+        //  Apply translation
+        // ═══════════════════════════════════════════════
+        function applyLang(lang) {
+            const t = translations[lang];
+            const meta = langMeta[lang];
+
+            // Update <html lang>
+            document.documentElement.lang = meta.htmlLang;
+
+            // Update all data-i18n elements
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (t[key] !== undefined) el.textContent = t[key];
+            });
+
+            // Update <title> and <meta description>
+            const titleEl = document.querySelector("title[data-i18n]");
+            if (titleEl && t["meta.title"]) document.title = t["meta.title"];
+            const metaDesc = document.querySelector("meta[name='description'][data-i18n]");
+            if (metaDesc && t["meta.description"]) metaDesc.setAttribute("content", t["meta.description"]);
+
+            // Update switcher button
+            document.getElementById("currentFlag").textContent = meta.flag;
+            document.getElementById("currentLangLabel").textContent = meta.label;
+
+            // Highlight active option
+            document.querySelectorAll(".lang-option").forEach(opt => {
+                opt.classList.toggle("active", opt.dataset.lang === lang);
+            });
+
+            // Persist
+            localStorage.setItem("ds-lang", lang);
+        }
+
+        // ═══════════════════════════════════════════════
+        //  Dropdown toggle
+        // ═══════════════════════════════════════════════
+        const switcher = document.getElementById("langSwitcher");
+        const btn      = document.getElementById("langBtn");
+
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            switcher.classList.toggle("open");
+        });
+
+        document.addEventListener("click", () => {
+            switcher.classList.remove("open");
+        });
+
+        document.querySelectorAll(".lang-option").forEach(opt => {
+            opt.addEventListener("click", (e) => {
+                e.stopPropagation();
+                applyLang(opt.dataset.lang);
+                switcher.classList.remove("open");
+            });
+        });
+
+        // ═══════════════════════════════════════════════
+        //  Smooth scroll (original logic preserved)
+        // ═══════════════════════════════════════════════
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if (this.getAttribute('href') !== '#') {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
+                        target.scrollIntoView({ behavior: 'smooth' });
                     }
                 }
             });
         });
-        
-        // Tailwind script already loaded via CDN
+
+        // ═══════════════════════════════════════════════
+        //  Init
+        // ═══════════════════════════════════════════════
+        applyLang(detectLanguage());
     </script>
 </body>
 </html>
