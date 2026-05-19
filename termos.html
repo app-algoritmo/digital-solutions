@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- FAVICON Digital Solutions -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Digital Solutions" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#3b82f6" />
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="meta.title">Terms of Use | Digital Solutions</title>
+    <meta name="description" data-i18n="meta.description" content="Terms of Use of Digital Solutions. Read the terms and conditions governing the use of our website and services.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #60A5FA;
+            transform: translateY(-2px);
+        }
+        
+        /* Language Switcher */
+        .lang-switcher {
+            position: relative;
+        }
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #e4e4e7;
+            padding: 7px 14px;
+            border-radius: 99px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+            white-space: nowrap;
+        }
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.14);
+            border-color: rgba(255,255,255,0.3);
+        }
+        .lang-btn .flag { font-size: 16px; line-height: 1; }
+        .lang-btn .chevron {
+            font-size: 10px;
+            opacity: 0.7;
+            transition: transform 0.2s;
+        }
+        .lang-switcher.open .chevron { transform: rotate(180deg); }
+
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: #18181b;
+            border: 1px solid #3f3f46;
+            border-radius: 14px;
+            overflow: hidden;
+            min-width: 170px;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        .lang-switcher.open .lang-dropdown { display: block; }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #d4d4d8;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .lang-option:hover { background: #27272a; }
+        .lang-option.active {
+            background: #1d4ed820;
+            color: #60a5fa;
+            font-weight: 700;
+        }
+        .lang-option .flag { font-size: 18px; }
+
+        /* Page Specific */
+        .terms-hero {
+            background: linear-gradient(135deg, #0A66C2 0%, #1E3A8A 100%);
+        }
+        .terms-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+        }
+        .toc-item {
+            transition: all 0.3s;
+        }
+        .toc-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+            padding-left: 1.5rem;
+        }
+        .toc-item.active {
+            border-left: 3px solid #3b82f6;
+            background: rgba(59, 130, 246, 0.05);
+            padding-left: 1.25rem;
+        }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-top: 2px solid #3b82f6;
+            padding: 1.5rem;
+            z-index: 9999;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+        .cookie-banner.hidden {
+            display: none;
+        }
+        .cookie-toggle {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            background: #475569;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .cookie-toggle.active {
+            background: #3b82f6;
+        }
+        .cookie-toggle.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .cookie-toggle-slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .cookie-toggle.active .cookie-toggle-slider {
+            transform: translateX(20px);
+        }
+        .cookie-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cookie-btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+        .cookie-btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+        .cookie-btn-secondary {
+            background: transparent;
+            color: #3b82f6;
+            border: 2px solid #3b82f6;
+        }
+        .cookie-btn-secondary:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+        .cookie-btn-tertiary {
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid #334155;
+        }
+        .cookie-btn-tertiary:hover {
+            background: #334155;
+            color: white;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #18181b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100">
+
+    <!-- Navbar -->
+    <nav class="bg-zinc-900 border-b border-zinc-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-2xl">DS</div>
+                <h1 class="text-2xl font-semibold tracking-tight">Digital Solutions</h1>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="index.html#sobre" class="nav-link" data-i18n="nav.about">About</a>
+                <a href="index.html#servicos" class="nav-link" data-i18n="nav.services">Services</a>
+                <a href="index.html#tecnologias" class="nav-link" data-i18n="nav.tech">Technologies</a>
+                <a href="index.html#projetos" class="nav-link" data-i18n="nav.projects">Projects</a>
+                <a href="contato.html" class="nav-link" data-i18n="nav.contact">Contact</a>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <!-- Language Switcher -->
+                <div class="lang-switcher" id="langSwitcher">
+                    <button class="lang-btn" id="langBtn" aria-label="Select language">
+                        <span class="flag" id="currentFlag">🇸</span>
+                        <span id="currentLangLabel">EN</span>
+                        <span class="chevron">▼</span>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <div class="lang-option" data-lang="en">
+                            <span class="flag">🇺🇸</span> English
+                        </div>
+                        <div class="lang-option" data-lang="pt">
+                            <span class="flag">🇧🇷</span> Português
+                        </div>
+                        <div class="lang-option" data-lang="no">
+                            <span class="flag">🇳🇴</span> Norsk
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Terms Hero -->
+    <section class="terms-hero py-20 md:py-28">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-3xl text-sm mb-6">
+                <i class="fas fa-file-contract text-blue-300"></i>
+                <span data-i18n="terms.hero.badge">Legal Document</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tighter max-w-4xl mx-auto mb-6" data-i18n="terms.hero.title">
+                Terms of Use
+            </h1>
+            
+            <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-4" data-i18n="terms.hero.sub">
+                Please read these terms carefully before using our website and services. By accessing our site, you agree to be bound by these terms.
+            </p>
+            
+            <p class="text-zinc-400 text-sm" data-i18n="terms.hero.updated">Last updated: January 1, 2026</p>
+        </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="py-12 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="terms-card p-8 rounded-3xl border border-zinc-800">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+                    <i class="fas fa-list text-blue-500"></i>
+                    <span data-i18n="terms.toc.title">Table of Contents</span>
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <a href="#section1" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">1</span>
+                        <span data-i18n="terms.toc.item1">Acceptance of Terms</span>
+                    </a>
+                    <a href="#section2" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">2</span>
+                        <span data-i18n="terms.toc.item2">Services Provided</span>
+                    </a>
+                    <a href="#section3" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">3</span>
+                        <span data-i18n="terms.toc.item3">User Obligations</span>
+                    </a>
+                    <a href="#section4" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">4</span>
+                        <span data-i18n="terms.toc.item4">Intellectual Property</span>
+                    </a>
+                    <a href="#section5" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">5</span>
+                        <span data-i18n="terms.toc.item5">Limitation of Liability</span>
+                    </a>
+                    <a href="#section6" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">6</span>
+                        <span data-i18n="terms.toc.item6">External Links</span>
+                    </a>
+                    <a href="#section7" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">7</span>
+                        <span data-i18n="terms.toc.item7">Termination</span>
+                    </a>
+                    <a href="#section8" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">8</span>
+                        <span data-i18n="terms.toc.item8">Modifications</span>
+                    </a>
+                    <a href="#section9" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">9</span>
+                        <span data-i18n="terms.toc.item9">Governing Law</span>
+                    </a>
+                    <a href="#section10" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">10</span>
+                        <span data-i18n="terms.toc.item10">Contact Information</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="py-16 bg-zinc-950">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <!-- Section 1 -->
+            <div id="section1" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-500 text-xl">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold" data-i18n="terms.s1.title">1. Acceptance of Terms</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-zinc-300 leading-relaxed mb-4" data-i18n="terms.s1.text1">
+                        By accessing and using the Digital Solutions website (ds.barros.no) and any related services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use.
+                    </p>
+                    <p class="text-zinc-300 leading-relaxed" data-i18n="terms.s1.text2">
+                        If you do not agree with any part of these terms, you must not use our website or services. These terms apply to all visitors, users, and others who access or use our services.
+                    </p>
+                </div>
+                <div class="mt-4 p-4 bg-blue-600/10 border border-blue-600/20 rounded-xl">
+                    <p class="text-blue-300 text-sm flex items-start gap-3">
+                        <i class="fas fa-info-circle mt-0.5"></i>
+                        <span data-i18n="terms.s1.note">These terms constitute a legally binding agreement between you and Digital Solutions, operated by Paulo Fernando De Barros.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div id="section2" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-emerald-600/10 rounded-2xl flex items-center justify-center text-emerald-500 text-xl">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold" data-i18n="terms.s2.title">2. Services Provided</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800 mb-6">
+                    <p class="text-zinc-300 leading-relaxed" data-i18n="terms.s2.text1">
+                        Digital Solutions provides the following technology services:
+                    </p>
+                </div>
+                
+                <div class="grid gap-4">
+                    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800">
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-globe text-blue-500 text-xl mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2" data-i18n="terms.s2.web.title">Web Development</h3>
+                                <p class="text-zinc-400 text-sm" data-i18n="terms.s2.web.desc">Custom websites, web applications, and landing pages built with modern technologies for optimal performance and user experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800">
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-cogs text-emerald-500 text-xl mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2" data-i18n="terms.s2.algo.title">Algorithms & Custom Software</h3>
+                                <p class="text-zinc-400 text-sm" data-i18n="terms.s2.algo.desc">Personalized software solutions and optimized algorithms designed to solve specific business challenges.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800">
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-robot text-purple-500 text-xl mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2" data-i18n="terms.s2.automation.title">Process Automation</h3>
+                                <p class="text-zinc-400 text-sm" data-i18n="terms.s2.automation.desc">RPA, intelligent scripts, system integration, and automation solutions to reduce repetitive tasks and increase efficiency.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800">
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-chart-bar text-amber-500 text-xl mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2" data-i18n="terms.s2.data.title">Data Analysis & Business Intelligence</h3>
+                                <p class="text-zinc-400 text-sm" data-i18n="terms.s2.data.desc">Data collection, processing, visualization, and analytics to support data-driven decision making.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800">
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-truck text-rose-500 text-xl mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2" data-i18n="terms.s2.logistics.title">Logistics & Supply Chain Solutions</h3>
+                                <p class="text-zinc-400 text-sm" data-i18n="terms.s2.logistics.desc">Advanced analytical tools for route optimization, inventory management, and logistics operations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div id="section3" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-amber-600/10 rounded-2xl flex items-center justify-center text-amber-500 text-xl">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold" data-i18n="terms.s3.title">3. User Obligations</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800 mb-6">
+                    <p class="text-zinc-300 leading-relaxed" data-i18n="terms.s3.text1">
+                        By using our website and services, you agree to the following obligations:
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4 p-5 bg-zinc-900 rounded-2xl border border-zinc-800">
+                        <div class="w-8 h-8 bg-green-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-zinc-200 mb-1" data-i18n="terms.s3.obligation1.title">Provide Accurate Information</h3>
+                            <p class="text-zinc-400 text-sm" data-i18n="terms.s3.obligation1.desc">You must provide truthful and accurate information when contacting us or using our services.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4 p-5 bg-zinc-900 rounded-2xl border border-zinc-800">
+                        <div class="w-8 h-8 bg-green-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-zinc-200 mb-1" data-i18n="terms.s3.obligation2.title">Respect Intellectual Property</h3>
+                            <p class="text-zinc-400 text-sm" data-i18n="terms.s3.obligation2.desc">You must not copy, reproduce, or distribute our content without explicit permission.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4 p-5 bg-zinc-900 rounded-2xl border border-zinc-800">
+                        <div class="w-8 h-8 bg-green-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                            <i class="fas fa-check text-green-500 text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-zinc-200 mb-1" data-i18n="terms.s3.obligation3.title">Comply with Laws</h3>
+                            <p class="text-zinc-400 text-sm" data-i18n="terms.s3.obligation3.desc">You must use our services in compliance with all applicable laws and regulations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4 p-5 bg-zinc-900 rounded-2xl border border-zinc-800">
+                        <div class="w-8 h-8 bg-red-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                            <i class="fas fa-xmark text-red-500 text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-zinc-200 mb-1" data-i18n="terms.s3.prohibited.title">Prohibited Activities</h3>
+                            <p class="text-zinc-400 text-sm" data-i18n="terms.s3.prohibited.desc">You must not use our website for illegal activities, spam, hacking, or any activity that could harm our systems or other users.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div id="section4" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-purple-600/10 rounded-2xl flex items-center justify-center text-purple-500 text-xl">
+                        <i class="fas fa-copyright"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold" data-i18n="terms.s4.title">4. Intellectual Property</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-zinc-300 leading-relaxed mb-6" data-i18n="terms.s4.text1">
+                        All content on this website, including but not limited to text, graphics, logos, images, code, software, and the overall design, is the exclusive property of Digital Solutions and is protected by applicable intellectual property laws.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-zinc-900 rounded-xl border border-zinc-800">
+                            <h3 class="font-semibold text-zinc-200 mb-2 flex items-center gap-2">
+                                <i class="fas fa-lock text-blue-500"></i>
+                                <span data-i18n="terms.s4.restricted.title">Restricted Content</span>
+                            </h3>
+                            <ul class="space-y-2 text-zinc-400 text-sm">
+                                <li class="flex items-center gap-2"><i class="fas fa-ban text-red-400 text-xs"></i> <span data-i18n="terms.s4.restricted.item1">Source code and algorithms</span></li>
+                                <li class="flex items-center gap-2"><i class="fas fa-ban text-red-400 text-xs"></i> <span data-i18n="terms.s4.restricted.item2">Website design and layout</span></li>
+                                <li class="flex items-center gap-2"><i class="fas fa-ban text-red-400 text-xs"></i> <span data-i18n="terms.s4.restricted.item3">Brand identity and trademarks</span></li>
+                                <li class="flex items-center gap-2"><i class="fas fa-ban text-red-400 text-xs"></i> <span data-i18n="terms.s4.restricted.item4">Written content and documentation</span></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-4 bg-zinc-900 rounded-xl border border-zinc-800">
+                            <h3 class="font-semibold text-zinc-200 mb-2 flex items-center gap-2">
+                                <i class="fas fa-unlock text-emerald-500"></i>
+                                <span data-i18n="terms.s4.allowed.title">Allowed Use</span>
+                            </h3>
+                            <ul class="space-y-2 text-zinc-400 text-sm">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-400 text-xs"></i> <span data-i18n="terms.s4.allowed.item1">Personal browsing and reading</span></li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-400 text-xs"></i> <span data-i18n="terms.s4.allowed.item2">Sharing links to our pages</span></li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-400 text-xs"></i> <span data-i18n="terms.s4.allowed.item3">Quoting with proper attribution</span></li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-400 text-xs"></i> <span data-i18n="terms.s4.allowed.item4">Using our services as agreed</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5 -->
+            <div id="section5" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-rose-600/10 rounded-2xl flex items-center justify-center text-rose-500 text-xl">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold" data-i18n="terms.s5.title">5. Limitation of Liability</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800 mb-6">
+                    <p class="text-zinc-300 leading-relaxed mb-4" data-i18n="terms.s5.text1">
+                        To the maximum extent permitted by applicable law, Digital Solutions shall not be liable for:
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4 p-5 bg-zinc-900 rounded-2xl border border-zinc-800">
+                        <i class="fas fa-exclamation-triangle text-amber-500 text-xl mt-1"></i>
+                        <div>
+                            <h3 class="font-medium text-zinc-200 mb-1" data-i18n="terms.s5.liability1.title">Indirect or Consequential Damages</h3>
+                            <p class="text-zinc-400 text-sm" data-i18n="terms.s5.liability1.desc">We are not responsible for any indirect, incidental, special, or consequential damages arising from the use of our services.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4 p-5 bg-zinc-900 rounded-2xl border border-zinc-800">
+                        <i class="fas fa-exclamation-triangle text-amber-500 text-xl mt-1"></i>
+                        <div>
+                            <h3 class="font-medium text-zinc-200 mb-1" data-i18n="terms.s5.liability2.title">Service Interruptions</h3>
+                            <p class="text-zinc-400 text-sm" data-i18n="terms.s5.liability2.desc">We do not guarantee uninterrupted access to our website. Temporary outages may occur for maintenance or technical reasons.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4 p-5 bg-zinc-900 rounded-2xl border border-zinc-800">
+                        <i class="fas fa-exclamation-triangle text-amber-500 text-xl mt-1"></i>
+                        <div>
+                            <h3 class="font-medium text-zinc-200 mb-1" data-i18n="terms.s5.liability3.title">Third-Party Content</h3>
+                            <p class="text-zinc-400 text-sm" data-i18n="terms.s5.liability3.desc">We are not responsible for the content, accuracy, or practices of third-party websites linked from our site.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4 p-5 bg-zinc-900 rounded-2xl border border-zinc-800">
+                        <i class="fas fa-exclamation-triangle text-amber-500 text-xl mt-1"></i>
+                        <div>
+                            <h3 class="font-medium text-zinc-200 mb-1" data-i18n="terms.s5.liability4.title">Project Outcomes</h3>
+                            <p class="text-zinc-400 text-sm" data-i18n="terms.s5.liability4.desc">While we strive for excellence, specific business outcomes from our services cannot be guaranteed as they depend on various external factors.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-amber-600/10 border border-amber-600/20 rounded-xl">
+                    <p class="text-amber-300 text-sm flex items-start gap-3">
+                        <i class="fas fa-gavel mt-0.5"></i>
+                        <span data-i18n="terms.s5.max">The total liability of Digital Solutions shall not exceed the amount paid by the client for the specific service in question, or €1,000, whichever is less.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 6 -->
+            <div id="section6" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-cyan-600/10 rounded-2xl flex items-center justify-center text-cyan-500 text-xl">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold" data-i18n="terms.s6.title">6. External Links</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-zinc-300 leading-relaxed mb-4" data-i18n="terms.s6.text1">
+                        Our website may contain links to third-party websites or services that are not owned or controlled by Digital Solutions. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites.
+                    </p>
+                    <p class="text-zinc-300 leading-relaxed" data-i18n="terms.s6.text2">
+                        By using our website, you acknowledge and agree that Digital Solutions shall not be responsible or liable, directly or indirectly, for any damage or loss caused by or in connection with the use of any such content, goods, or services available on or through any such websites.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 7 -->
+            <div id="section7" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-violet-600/10 rounded-2xl flex items-center justify-center text-violet-500 text-xl">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold" data-i18n="terms.s7.title">7. Termination</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800 mb-6">
+                    <p class="text-zinc-300 leading-relaxed" data-i18n="terms.s7.text1">
+                        We may terminate or suspend your access to our services immediately, without prior notice or liability, for any reason, including without limitation if you breach these Terms.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="p-5 bg-zinc-900 rounded-2xl border border-zinc-800">
+                        <h3 class="font-semibold text-zinc-200 mb-2 flex items-center gap-2">
+                            <i class="fas fa-user text-blue-500"></i>
+                            <span data-i18n="terms.s7.user.title">By the User</span>
+                        </h3>
+                        <p class="text-zinc-400 text-sm" data-i18n="terms.s7.user.desc">You may discontinue use of our services at any time by notifying us in writing. Any ongoing projects will be handled according to the specific project agreement.</p>
+                    </div>
+                    
+                    <div class="p-5 bg-zinc-900 rounded-2xl border border-zinc-800">
+                        <h3 class="font-semibold text-zinc-200 mb-2 flex items-center gap-2">
+                            <i class="fas fa-building text-purple-500"></i>
+                            <span data-i18n="terms.s7.provider.title">By Digital Solutions</span>
+                        </h3>
+                        <p class="text-zinc-400 text-sm" data-i18n="terms.s7.provider.desc">We reserve the right to suspend or terminate services for violation of these terms, non-payment, or any other reason at our discretion.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 8 -->
+            <div id="section8" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-teal-600/10 rounded-2xl flex items-center justify-center text-teal-500 text-xl">
+                        <i class="fas fa-pen-to-square"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold" data-i18n="terms.s8.title">8. Modifications to Terms</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-zinc-300 leading-relaxed mb-4" data-i18n="terms.s8.text1">
+                        Digital Solutions reserves the right to modify or replace these Terms at any time at our sole discretion. If a revision is material, we will try to provide at least 30 days' notice before any new terms take effect.
+                    </p>
+                    <p class="text-zinc-300 leading-relaxed" data-i18n="terms.s8.text2">
+                        What constitutes a material change will be determined at our sole discretion. By continuing to access or use our service after those revisions become effective, you agree to be bound by the revised terms.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 9 -->
+            <div id="section9" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-indigo-600/10 rounded-2xl flex items-center justify-center text-indigo-500 text-xl">
+                        <i class="fas fa-scale-balanced"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold" data-i18n="terms.s9.title">9. Governing Law</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-zinc-300 leading-relaxed mb-4" data-i18n="terms.s9.text1">
+                        These Terms shall be governed by and construed in accordance with the laws of Norway, without regard to its conflict of law provisions.
+                    </p>
+                    <p class="text-zinc-300 leading-relaxed mb-4" data-i18n="terms.s9.text2">
+                        Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of Larvik, Norway.
+                    </p>
+                </div>
+                
+                <div class="mt-4 p-4 bg-zinc-800 rounded-xl border border-zinc-700">
+                    <h3 class="font-semibold text-zinc-200 mb-2 flex items-center gap-2">
+                        <i class="fas fa-landmark text-indigo-500"></i>
+                        <span data-i18n="terms.s9.dispute.title">Dispute Resolution</span>
+                    </h3>
+                    <p class="text-zinc-400 text-sm" data-i18n="terms.s9.dispute.desc">In the event of any dispute, both parties agree to first attempt to resolve the matter through good-faith negotiation before pursuing legal action.</p>
+                </div>
+            </div>
+
+            <!-- Section 10 -->
+            <div id="section10" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-500 text-xl">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold" data-i18n="terms.s10.title">10. Contact Information</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-zinc-300 leading-relaxed mb-6" data-i18n="terms.s10.text1">
+                        If you have any questions about these Terms of Use, please contact us:
+                    </p>
+                    
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <a href="mailto:post@barros.no" class="flex items-center gap-4 p-4 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-blue-500 transition-colors">
+                            <div class="w-10 h-10 bg-blue-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-blue-500"></i>
+                            </div>
+                            <div>
+                                <p class="text-zinc-500 text-xs" data-i18n="terms.s10.email.label">Email</p>
+                                <p class="text-zinc-200 font-medium text-sm">post@barros.no</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://wa.me/4745678901" target="_blank" class="flex items-center gap-4 p-4 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-green-500 transition-colors">
+                            <div class="w-10 h-10 bg-green-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-whatsapp text-green-500"></i>
+                            </div>
+                            <div>
+                                <p class="text-zinc-500 text-xs" data-i18n="terms.s10.phone.label">Phone</p>
+                                <p class="text-zinc-200 font-medium text-sm">+47 456 78 901</p>
+                            </div>
+                        </a>
+                        
+                        <div class="flex items-center gap-4 p-4 bg-zinc-900 rounded-xl border border-zinc-800">
+                            <div class="w-10 h-10 bg-purple-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-location-dot text-purple-500"></i>
+                            </div>
+                            <div>
+                                <p class="text-zinc-500 text-xs" data-i18n="terms.s10.address.label">Address</p>
+                                <p class="text-zinc-200 font-medium text-sm">Larvik, Norway</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                        <a href="privacidade.html" class="flex-1 text-center py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all">
+                            <i class="fas fa-shield-halved mr-2"></i>
+                            <span data-i18n="terms.s10.privacy">Privacy Policy</span>
+                        </a>
+                        <a href="contato.html" class="flex-1 text-center py-3 px-6 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold rounded-xl transition-all border border-zinc-700">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            <span data-i18n="terms.s10.contact">Contact Us</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-16 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Coluna 1: Logo e Informações Digital Solutions -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">DS</div>
+                        <h3 class="text-white font-semibold text-lg">Digital Solutions</h3>
+                    </div>
+                    <p class="text-zinc-400 text-sm mb-4" data-i18n="footer.description">
+                        Strategic digital solutions that deliver real results. Modern web development, advanced algorithms, intelligent automation and data analysis.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/app-algoritmo" target="_blank" class="w-9 h-9 bg-zinc-800 hover:bg-blue-600 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-all">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/paulofernandodebarros/" target="_blank" class="w-9 h-9 bg-zinc-800 hover:bg-blue-600 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-all">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:post@barros.no" class="w-9 h-9 bg-zinc-800 hover:bg-blue-600 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-all">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Links Rápidos -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6" data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="index.html#sobre" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                <span data-i18n="nav.about">About</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#servicos" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                <span data-i18n="nav.services">Services</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html#projetos" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                <span data-i18n="nav.projects">Projects</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contato.html" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                <span data-i18n="nav.contact">Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Serviços -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6" data-i18n="footer.services">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li class="text-zinc-400 text-sm">Web Development</li>
+                        <li class="text-zinc-400 text-sm">Algorithms & Software</li>
+                        <li class="text-zinc-400 text-sm">Process Automation</li>
+                        <li class="text-zinc-400 text-sm">Data Analysis & BI</li>
+                        <li class="text-zinc-400 text-sm">Logistics & Supply Chain</li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Legal -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6" data-i18n="footer.legal">Legal</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="privacidade.html" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors">
+                                <span data-i18n="footer.privacy">Privacy Policy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="termos.html" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors">
+                                <span data-i18n="footer.terms">Terms of Use</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://ds.barros.no/cookies" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors">
+                                <span data-i18n="footer.cookies">Cookie Policy</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Linha divisória -->
+            <div class="border-t border-zinc-800 pt-8 mt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-zinc-500 text-sm">
+                        © 2026 Digital Solutions. <span data-i18n="footer.rights">All rights reserved.</span>
+                    </p>
+                    <p class="text-zinc-500 text-sm flex items-center gap-2">
+                        <i class="fas fa-code text-blue-500"></i>
+                        <span data-i18n="footer.made">Built with precision and innovation</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
+                <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-cookie-bite text-blue-500 text-xl"></i>
+                        <h3 class="text-blue-400 font-bold text-lg uppercase tracking-wide" data-i18n="cookie.title">Privacy & Cookies</h3>
+                    </div>
+                    <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+                        <span data-i18n="cookie.text">We use cookies to analyze traffic and personalize ads. You can choose which ones to accept. Read our</span>
+                        <a href="privacidade.html" class="text-blue-400 hover:text-blue-300 underline transition-colors" data-i18n="cookie.policy">Privacy Policy</a>.
+                    </p>
+                    <div class="flex flex-wrap gap-6">
+                        <div class="flex items-center gap-3">
+                            <div class="cookie-toggle disabled" id="toggleNecessary">
+                                <div class="cookie-toggle-slider"></div>
+                            </div>
+                            <span class="text-zinc-400 text-sm" data-i18n="cookie.necessary">Necessary</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="cookie-toggle active" id="toggleAnalytics" data-cookie="analytics">
+                                <div class="cookie-toggle-slider"></div>
+                            </div>
+                            <span class="text-zinc-400 text-sm" data-i18n="cookie.analytics">Analytics</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="cookie-toggle active" id="toggleMarketing" data-cookie="marketing">
+                                <div class="cookie-toggle-slider"></div>
+                            </div>
+                            <span class="text-zinc-400 text-sm" data-i18n="cookie.marketing">Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <button class="cookie-btn cookie-btn-primary" id="acceptAll" data-i18n="cookie.acceptAll">Accept All</button>
+                    <button class="cookie-btn cookie-btn-secondary" id="saveChoice" data-i18n="cookie.saveChoice">Save Choice</button>
+                    <button class="cookie-btn cookie-btn-tertiary" id="rejectAll" data-i18n="cookie.reject">Reject</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ═══════════════════════════════════════════════
+        //  i18n — Translation Dictionary
+        // ═══════════════════════════════════════════════
+        const translations = {
+            en: {
+                "meta.title": "Terms of Use | Digital Solutions",
+                "meta.description": "Terms of Use of Digital Solutions. Read the terms and conditions governing the use of our website and services.",
+                "nav.about": "About",
+                "nav.services": "Services",
+                "nav.tech": "Technologies",
+                "nav.projects": "Projects",
+                "nav.contact": "Contact",
+                "terms.hero.badge": "Legal Document",
+                "terms.hero.title": "Terms of Use",
+                "terms.hero.sub": "Please read these terms carefully before using our website and services. By accessing our site, you agree to be bound by these terms.",
+                "terms.hero.updated": "Last updated: January 1, 2026",
+                "terms.toc.title": "Table of Contents",
+                "terms.toc.item1": "Acceptance of Terms",
+                "terms.toc.item2": "Services Provided",
+                "terms.toc.item3": "User Obligations",
+                "terms.toc.item4": "Intellectual Property",
+                "terms.toc.item5": "Limitation of Liability",
+                "terms.toc.item6": "External Links",
+                "terms.toc.item7": "Termination",
+                "terms.toc.item8": "Modifications",
+                "terms.toc.item9": "Governing Law",
+                "terms.toc.item10": "Contact Information",
+                "terms.s1.title": "1. Acceptance of Terms",
+                "terms.s1.text1": "By accessing and using the Digital Solutions website (ds.barros.no) and any related services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use.",
+                "terms.s1.text2": "If you do not agree with any part of these terms, you must not use our website or services. These terms apply to all visitors, users, and others who access or use our services.",
+                "terms.s1.note": "These terms constitute a legally binding agreement between you and Digital Solutions, operated by Paulo Fernando De Barros.",
+                "terms.s2.title": "2. Services Provided",
+                "terms.s2.text1": "Digital Solutions provides the following technology services:",
+                "terms.s2.web.title": "Web Development",
+                "terms.s2.web.desc": "Custom websites, web applications, and landing pages built with modern technologies for optimal performance and user experience.",
+                "terms.s2.algo.title": "Algorithms & Custom Software",
+                "terms.s2.algo.desc": "Personalized software solutions and optimized algorithms designed to solve specific business challenges.",
+                "terms.s2.automation.title": "Process Automation",
+                "terms.s2.automation.desc": "RPA, intelligent scripts, system integration, and automation solutions to reduce repetitive tasks and increase efficiency.",
+                "terms.s2.data.title": "Data Analysis & Business Intelligence",
+                "terms.s2.data.desc": "Data collection, processing, visualization, and analytics to support data-driven decision making.",
+                "terms.s2.logistics.title": "Logistics & Supply Chain Solutions",
+                "terms.s2.logistics.desc": "Advanced analytical tools for route optimization, inventory management, and logistics operations.",
+                "terms.s3.title": "3. User Obligations",
+                "terms.s3.text1": "By using our website and services, you agree to the following obligations:",
+                "terms.s3.obligation1.title": "Provide Accurate Information",
+                "terms.s3.obligation1.desc": "You must provide truthful and accurate information when contacting us or using our services.",
+                "terms.s3.obligation2.title": "Respect Intellectual Property",
+                "terms.s3.obligation2.desc": "You must not copy, reproduce, or distribute our content without explicit permission.",
+                "terms.s3.obligation3.title": "Comply with Laws",
+                "terms.s3.obligation3.desc": "You must use our services in compliance with all applicable laws and regulations.",
+                "terms.s3.prohibited.title": "Prohibited Activities",
+                "terms.s3.prohibited.desc": "You must not use our website for illegal activities, spam, hacking, or any activity that could harm our systems or other users.",
+                "terms.s4.title": "4. Intellectual Property",
+                "terms.s4.text1": "All content on this website, including but not limited to text, graphics, logos, images, code, software, and the overall design, is the exclusive property of Digital Solutions and is protected by applicable intellectual property laws.",
+                "terms.s4.restricted.title": "Restricted Content",
+                "terms.s4.restricted.item1": "Source code and algorithms",
+                "terms.s4.restricted.item2": "Website design and layout",
+                "terms.s4.restricted.item3": "Brand identity and trademarks",
+                "terms.s4.restricted.item4": "Written content and documentation",
+                "terms.s4.allowed.title": "Allowed Use",
+                "terms.s4.allowed.item1": "Personal browsing and reading",
+                "terms.s4.allowed.item2": "Sharing links to our pages",
+                "terms.s4.allowed.item3": "Quoting with proper attribution",
+                "terms.s4.allowed.item4": "Using our services as agreed",
+                "terms.s5.title": "5. Limitation of Liability",
+                "terms.s5.text1": "To the maximum extent permitted by applicable law, Digital Solutions shall not be liable for:",
+                "terms.s5.liability1.title": "Indirect or Consequential Damages",
+                "terms.s5.liability1.desc": "We are not responsible for any indirect, incidental, special, or consequential damages arising from the use of our services.",
+                "terms.s5.liability2.title": "Service Interruptions",
+                "terms.s5.liability2.desc": "We do not guarantee uninterrupted access to our website. Temporary outages may occur for maintenance or technical reasons.",
+                "terms.s5.liability3.title": "Third-Party Content",
+                "terms.s5.liability3.desc": "We are not responsible for the content, accuracy, or practices of third-party websites linked from our site.",
+                "terms.s5.liability4.title": "Project Outcomes",
+                "terms.s5.liability4.desc": "While we strive for excellence, specific business outcomes from our services cannot be guaranteed as they depend on various external factors.",
+                "terms.s5.max": "The total liability of Digital Solutions shall not exceed the amount paid by the client for the specific service in question, or €1,000, whichever is less.",
+                "terms.s6.title": "6. External Links",
+                "terms.s6.text1": "Our website may contain links to third-party websites or services that are not owned or controlled by Digital Solutions. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites.",
+                "terms.s6.text2": "By using our website, you acknowledge and agree that Digital Solutions shall not be responsible or liable, directly or indirectly, for any damage or loss caused by or in connection with the use of any such content, goods, or services available on or through any such websites.",
+                "terms.s7.title": "7. Termination",
+                "terms.s7.text1": "We may terminate or suspend your access to our services immediately, without prior notice or liability, for any reason, including without limitation if you breach these Terms.",
+                "terms.s7.user.title": "By the User",
+                "terms.s7.user.desc": "You may discontinue use of our services at any time by notifying us in writing. Any ongoing projects will be handled according to the specific project agreement.",
+                "terms.s7.provider.title": "By Digital Solutions",
+                "terms.s7.provider.desc": "We reserve the right to suspend or terminate services for violation of these terms, non-payment, or any other reason at our discretion.",
+                "terms.s8.title": "8. Modifications to Terms",
+                "terms.s8.text1": "Digital Solutions reserves the right to modify or replace these Terms at any time at our sole discretion. If a revision is material, we will try to provide at least 30 days' notice before any new terms take effect.",
+                "terms.s8.text2": "What constitutes a material change will be determined at our sole discretion. By continuing to access or use our service after those revisions become effective, you agree to be bound by the revised terms.",
+                "terms.s9.title": "9. Governing Law",
+                "terms.s9.text1": "These Terms shall be governed by and construed in accordance with the laws of Norway, without regard to its conflict of law provisions.",
+                "terms.s9.text2": "Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of Larvik, Norway.",
+                "terms.s9.dispute.title": "Dispute Resolution",
+                "terms.s9.dispute.desc": "In the event of any dispute, both parties agree to first attempt to resolve the matter through good-faith negotiation before pursuing legal action.",
+                "terms.s10.title": "10. Contact Information",
+                "terms.s10.text1": "If you have any questions about these Terms of Use, please contact us:",
+                "terms.s10.email.label": "Email",
+                "terms.s10.phone.label": "Phone",
+                "terms.s10.address.label": "Address",
+                "terms.s10.privacy": "Privacy Policy",
+                "terms.s10.contact": "Contact Us",
+                "footer.rights": "All rights reserved.",
+                "footer.description": "Strategic digital solutions that deliver real results. Modern web development, advanced algorithms, intelligent automation and data analysis.",
+                "footer.quickLinks": "Quick Links",
+                "footer.services": "Our Services",
+                "footer.legal": "Legal",
+                "footer.privacy": "Privacy Policy",
+                "footer.terms": "Terms of Use",
+                "footer.cookies": "Cookie Policy",
+                "footer.made": "Built with precision and innovation",
+                "cookie.title": "Privacy & Cookies",
+                "cookie.text": "We use cookies to analyze traffic and personalize ads. You can choose which ones to accept. Read our",
+                "cookie.policy": "Privacy Policy",
+                "cookie.necessary": "Necessary",
+                "cookie.analytics": "Analytics",
+                "cookie.marketing": "Marketing",
+                "cookie.acceptAll": "Accept All",
+                "cookie.saveChoice": "Save Choice",
+                "cookie.reject": "Reject"
+            },
+            pt: {
+                "meta.title": "Termos de Uso | Digital Solutions",
+                "meta.description": "Termos de Uso da Digital Solutions. Leia os termos e condições que regem o uso de nosso site e serviços.",
+                "nav.about": "Sobre",
+                "nav.services": "Serviços",
+                "nav.tech": "Tecnologias",
+                "nav.projects": "Projetos",
+                "nav.contact": "Contato",
+                "terms.hero.badge": "Documento Legal",
+                "terms.hero.title": "Termos de Uso",
+                "terms.hero.sub": "Leia estes termos com atenção antes de usar nosso site e serviços. Ao acessar nosso site, você concorda em estar vinculado a estes termos.",
+                "terms.hero.updated": "Última atualização: 1 de janeiro de 2026",
+                "terms.toc.title": "Índice",
+                "terms.toc.item1": "Aceitação dos Termos",
+                "terms.toc.item2": "Serviços Oferecidos",
+                "terms.toc.item3": "Obrigações do Usuário",
+                "terms.toc.item4": "Propriedade Intelectual",
+                "terms.toc.item5": "Limitação de Responsabilidade",
+                "terms.toc.item6": "Links Externos",
+                "terms.toc.item7": "Rescisão",
+                "terms.toc.item8": "Modificações",
+                "terms.toc.item9": "Lei Aplicável",
+                "terms.toc.item10": "Informações de Contato",
+                "terms.s1.title": "1. Aceitação dos Termos",
+                "terms.s1.text1": "Ao acessar e usar o site da Digital Solutions (ds.barros.no) e quaisquer serviços relacionados, você reconhece que leu, compreendeu e concorda em estar vinculado a estes Termos de Uso.",
+                "terms.s1.text2": "Se você não concorda com qualquer parte destes termos, não deve usar nosso site ou serviços. Estes termos se aplicam a todos os visitantes, usuários e outros que acessam ou usam nossos serviços.",
+                "terms.s1.note": "Estes termos constituem um acordo legalmente vinculativo entre você e a Digital Solutions, operada por Paulo Fernando De Barros.",
+                "terms.s2.title": "2. Serviços Oferecidos",
+                "terms.s2.text1": "A Digital Solutions oferece os seguintes serviços de tecnologia:",
+                "terms.s2.web.title": "Desenvolvimento Web",
+                "terms.s2.web.desc": "Sites personalizados, aplicações web e landing pages construídas com tecnologias modernas para desempenho e experiência do usuário otimizados.",
+                "terms.s2.algo.title": "Algoritmos & Software Sob Medida",
+                "terms.s2.algo.desc": "Soluções de software personalizadas e algoritmos otimizados projetados para resolver desafios específicos de negócios.",
+                "terms.s2.automation.title": "Automação de Processos",
+                "terms.s2.automation.desc": "RPA, scripts inteligentes, integração de sistemas e soluções de automação para reduzir tarefas repetitivas e aumentar a eficiência.",
+                "terms.s2.data.title": "Análise de Dados & Business Intelligence",
+                "terms.s2.data.desc": "Coleta, processamento, visualização e análise de dados para apoiar a tomada de decisão baseada em dados.",
+                "terms.s2.logistics.title": "Soluções de Logística & Supply Chain",
+                "terms.s2.logistics.desc": "Ferramentas analíticas avançadas para otimização de rotas, gestão de estoque e operações logísticas.",
+                "terms.s3.title": "3. Obrigações do Usuário",
+                "terms.s3.text1": "Ao usar nosso site e serviços, você concorda com as seguintes obrigações:",
+                "terms.s3.obligation1.title": "Fornecer Informações Precisas",
+                "terms.s3.obligation1.desc": "Você deve fornecer informações verdadeiras e precisas ao entrar em contato conosco ou usar nossos serviços.",
+                "terms.s3.obligation2.title": "Respeitar a Propriedade Intelectual",
+                "terms.s3.obligation2.desc": "Você não deve copiar, reproduzir ou distribuir nosso conteúdo sem permissão explícita.",
+                "terms.s3.obligation3.title": "Cumprir as Leis",
+                "terms.s3.obligation3.desc": "Você deve usar nossos serviços em conformidade com todas as leis e regulamentos aplicáveis.",
+                "terms.s3.prohibited.title": "Atividades Proibidas",
+                "terms.s3.prohibited.desc": "Você não deve usar nosso site para atividades ilegais, spam, hacking ou qualquer atividade que possa prejudicar nossos sistemas ou outros usuários.",
+                "terms.s4.title": "4. Propriedade Intelectual",
+                "terms.s4.text1": "Todo o conteúdo deste site, incluindo mas não se limitando a texto, gráficos, logos, imagens, código, software e o design geral, é propriedade exclusiva da Digital Solutions e é protegido pelas leis de propriedade intelectual aplicáveis.",
+                "terms.s4.restricted.title": "Conteúdo Restrito",
+                "terms.s4.restricted.item1": "Código fonte e algoritmos",
+                "terms.s4.restricted.item2": "Design e layout do site",
+                "terms.s4.restricted.item3": "Identidade da marca e marcas registradas",
+                "terms.s4.restricted.item4": "Conteúdo escrito e documentação",
+                "terms.s4.allowed.title": "Uso Permitido",
+                "terms.s4.allowed.item1": "Navegação e leitura pessoal",
+                "terms.s4.allowed.item2": "Compartilhamento de links para nossas páginas",
+                "terms.s4.allowed.item3": "Citação com atribuição adequada",
+                "terms.s4.allowed.item4": "Uso de nossos serviços conforme acordado",
+                "terms.s5.title": "5. Limitação de Responsabilidade",
+                "terms.s5.text1": "Na máxima extensão permitida pela lei aplicável, a Digital Solutions não será responsável por:",
+                "terms.s5.liability1.title": "Danos Indiretos ou Consequenciais",
+                "terms.s5.liability1.desc": "Não somos responsáveis por quaisquer danos indiretos, incidentais, especiais ou consequenciais decorrentes do uso de nossos serviços.",
+                "terms.s5.liability2.title": "Interrupções de Serviço",
+                "terms.s5.liability2.desc": "Não garantimos acesso ininterrupto ao nosso site. Interrupções temporárias podem ocorrer por motivos de manutenção ou técnicos.",
+                "terms.s5.liability3.title": "Conteúdo de Terceiros",
+                "terms.s5.liability3.desc": "Não somos responsáveis pelo conteúdo, precisão ou práticas de sites de terceiros vinculados ao nosso site.",
+                "terms.s5.liability4.title": "Resultados de Projetos",
+                "terms.s5.liability4.desc": "Embora busquemos a excelência, resultados específicos de negócios de nossos serviços não podem ser garantidos pois dependem de vários fatores externos.",
+                "terms.s5.max": "A responsabilidade total da Digital Solutions não excederá o valor pago pelo cliente pelo serviço específico em questão, ou €1.000, o que for menor.",
+                "terms.s6.title": "6. Links Externos",
+                "terms.s6.text1": "Nosso site pode conter links para sites ou serviços de terceiros que não são propriedade ou controlados pela Digital Solutions. Não temos controle e não assumimos responsabilidade pelo conteúdo, políticas de privacidade ou práticas de quaisquer sites de terceiros.",
+                "terms.s6.text2": "Ao usar nosso site, você reconhece e concorda que a Digital Solutions não será responsável, direta ou indiretamente, por qualquer dano ou perda causado por ou em conexão com o uso de qualquer conteúdo, bens ou serviços disponíveis em ou através de tais sites.",
+                "terms.s7.title": "7. Rescisão",
+                "terms.s7.text1": "Podemos encerrar ou suspender seu acesso aos nossos serviços imediatamente, sem aviso prévio ou responsabilidade, por qualquer motivo, incluindo sem limitação se você violar estes Termos.",
+                "terms.s7.user.title": "Pelo Usuário",
+                "terms.s7.user.desc": "Você pode descontinuar o uso de nossos serviços a qualquer momento nos notificando por escrito. Quaisquer projetos em andamento serão tratados de acordo com o acordo específico do projeto.",
+                "terms.s7.provider.title": "Pela Digital Solutions",
+                "terms.s7.provider.desc": "Reservamo-nos o direito de suspender ou encerrar serviços por violação destes termos, não pagamento ou qualquer outro motivo a nosso critério.",
+                "terms.s8.title": "8. Modificações dos Termos",
+                "terms.s8.text1": "A Digital Solutions reserva o direito de modificar ou substituir estes Termos a qualquer momento a nosso exclusivo critério. Se uma revisão for material, tentaremos fornecer pelo menos 30 dias de aviso antes que quaisquer novos termos entrem em vigor.",
+                "terms.s8.text2": "O que constitui uma mudança material será determinado a nosso exclusivo critério. Ao continuar a acessar ou usar nosso serviço após essas revisões entrarem em vigor, você concorda em estar vinculado aos termos revisados.",
+                "terms.s9.title": "9. Lei Aplicável",
+                "terms.s9.text1": "Estes Termos serão regidos e interpretados de acordo com as leis da Noruega, sem considerar suas disposições de conflito de leis.",
+                "terms.s9.text2": "Qualquer disputa decorrente ou em conexão com estes Termos estará sujeita à jurisdição exclusiva dos tribunais de Larvik, Noruega.",
+                "terms.s9.dispute.title": "Resolução de Disputas",
+                "terms.s9.dispute.desc": "Em caso de qualquer disputa, ambas as partes concordam em primeiro tentar resolver a questão através de negociação de boa-fé antes de buscar ação legal.",
+                "terms.s10.title": "10. Informações de Contato",
+                "terms.s10.text1": "Se você tiver dúvidas sobre estes Termos de Uso, entre em contato conosco:",
+                "terms.s10.email.label": "Email",
+                "terms.s10.phone.label": "Telefone",
+                "terms.s10.address.label": "Endereço",
+                "terms.s10.privacy": "Política de Privacidade",
+                "terms.s10.contact": "Entre em Contato",
+                "footer.rights": "Todos os direitos reservados.",
+                "footer.description": "Soluções digitais estratégicas que entregam resultados reais. Desenvolvimento web moderno, algoritmos avançados, automação inteligente e análise de dados.",
+                "footer.quickLinks": "Links Rápidos",
+                "footer.services": "Nossos Serviços",
+                "footer.legal": "Legal",
+                "footer.privacy": "Política de Privacidade",
+                "footer.terms": "Termos de Uso",
+                "footer.cookies": "Política de Cookies",
+                "footer.made": "Construído com precisão e inovação",
+                "cookie.title": "Privacidade & Cookies",
+                "cookie.text": "Usamos cookies para analisar o tráfego e personalizar anúncios. Você pode escolher quais aceitar. Leia nossa",
+                "cookie.policy": "Política de Privacidade",
+                "cookie.necessary": "Necessários",
+                "cookie.analytics": "Análise",
+                "cookie.marketing": "Marketing",
+                "cookie.acceptAll": "Aceitar Tudo",
+                "cookie.saveChoice": "Salvar Escolha",
+                "cookie.reject": "Rejeitar"
+            },
+            no: {
+                "meta.title": "Bruksvilkår | Digital Solutions",
+                "meta.description": "Bruksvilkår fra Digital Solutions. Les vilkårene og betingelsene som styrer bruken av vårt nettsted og tjenester.",
+                "nav.about": "Om oss",
+                "nav.services": "Tjenester",
+                "nav.tech": "Teknologier",
+                "nav.projects": "Prosjekter",
+                "nav.contact": "Kontakt",
+                "terms.hero.badge": "Juridisk Dokument",
+                "terms.hero.title": "Bruksvilkår",
+                "terms.hero.sub": "Les disse vilkårene nøye før du bruker vårt nettsted og tjenester. Ved å få tilgang til nettstedet vårt, godtar du å være bundet av disse vilkårene.",
+                "terms.hero.updated": "Sist oppdatert: 1. januar 2026",
+                "terms.toc.title": "Innholdsfortegnelse",
+                "terms.toc.item1": "Godkjennelse av Vilkår",
+                "terms.toc.item2": "Tilbudte Tjenester",
+                "terms.toc.item3": "Brukerens Forpliktelser",
+                "terms.toc.item4": "Immaterielle Rettigheter",
+                "terms.toc.item5": "Ansvarsbegrensning",
+                "terms.toc.item6": "Eksterne Lenker",
+                "terms.toc.item7": "Oppsigelse",
+                "terms.toc.item8": "Endringer",
+                "terms.toc.item9": "Gjeldende Lov",
+                "terms.toc.item10": "Kontaktinformasjon",
+                "terms.s1.title": "1. Godkjennelse av Vilkår",
+                "terms.s1.text1": "Ved å få tilgang til og bruke Digital Solutions-nettstedet (ds.barros.no) og eventuelle relaterte tjenester, erkjenner du at du har lest, forstått og godtar å være bundet av disse bruksvilkårene.",
+                "terms.s1.text2": "Hvis du ikke godtar noen del av disse vilkårene, må du ikke bruke vårt nettsted eller tjenester. Disse vilkårene gjelder for alle besøkende, brukere og andre som får tilgang til eller bruker våre tjenester.",
+                "terms.s1.note": "Disse vilkårene utgjør en juridisk bindende avtale mellom deg og Digital Solutions, drevet av Paulo Fernando De Barros.",
+                "terms.s2.title": "2. Tilbudte Tjenester",
+                "terms.s2.text1": "Digital Solutions tilbyr følgende teknologitjenester:",
+                "terms.s2.web.title": "Webutvikling",
+                "terms.s2.web.desc": "Skreddersydde nettsteder, webapplikasjoner og landingssider bygget med moderne teknologier for optimal ytelse og brukeropplevelse.",
+                "terms.s2.algo.title": "Algoritmer & Skreddersydd Programvare",
+                "terms.s2.algo.desc": "Personlig tilpassede programvareløsninger og optimaliserte algoritmer designet for å løse spesifikke forretningsutfordringer.",
+                "terms.s2.automation.title": "Prosessautomatisering",
+                "terms.s2.automation.desc": "RPA, intelligente skript, systemintegrasjon og automatiseringsløsninger for å redusere repetitive oppgaver og øke effektiviteten.",
+                "terms.s2.data.title": "Dataanalyse & Forretningsinnsikt",
+                "terms.s2.data.desc": "Datainnsamling, behandling, visualisering og analyse for å støtte datadrevet beslutningstaking.",
+                "terms.s2.logistics.title": "Logistikk- & Forsyningskjedeløsninger",
+                "terms.s2.logistics.desc": "Avanserte analytiske verktøy for ruteoptimalisering, lagerstyring og logistikkoperasjoner.",
+                "terms.s3.title": "3. Brukerens Forpliktelser",
+                "terms.s3.text1": "Ved å bruke vårt nettsted og tjenester, godtar du følgende forpliktelser:",
+                "terms.s3.obligation1.title": "Gi Nøyaktig Informasjon",
+                "terms.s3.obligation1.desc": "Du må gi sannferdig og nøyaktig informasjon når du kontakter oss eller bruker våre tjenester.",
+                "terms.s3.obligation2.title": "Respektere Immaterielle Rettigheter",
+                "terms.s3.obligation2.desc": "Du må ikke kopiere, reprodusere eller distribuere vårt innhold uten eksplisitt tillatelse.",
+                "terms.s3.obligation3.title": "Overholde Lover",
+                "terms.s3.obligation3.desc": "Du må bruke våre tjenester i samsvar med alle gjeldende lover og forskrifter.",
+                "terms.s3.prohibited.title": "Forbudte Aktiviteter",
+                "terms.s3.prohibited.desc": "Du må ikke bruke nettstedet vårt for ulovlige aktiviteter, spam, hacking eller aktivitet som kan skade våre systemer eller andre brukere.",
+                "terms.s4.title": "4. Immaterielle Rettigheter",
+                "terms.s4.text1": "Alt innhold på dette nettstedet, inkludert men ikke begrenset til tekst, grafikk, logoer, bilder, kode, programvare og det samlede designet, er eksklusiv eiendom av Digital Solutions og er beskyttet av gjeldende lover om immaterielle rettigheter.",
+                "terms.s4.restricted.title": "Begrenset Innhold",
+                "terms.s4.restricted.item1": "Kildekode og algoritmer",
+                "terms.s4.restricted.item2": "Nettstedsdesign og layout",
+                "terms.s4.restricted.item3": "Merkevareidentitet og varemerker",
+                "terms.s4.restricted.item4": "Skrevet innhold og dokumentasjon",
+                "terms.s4.allowed.title": "Tillatt Bruk",
+                "terms.s4.allowed.item1": "Personlig surfing og lesing",
+                "terms.s4.allowed.item2": "Deling av lenker til våre sider",
+                "terms.s4.allowed.item3": "Sitering med riktig attribusjon",
+                "terms.s4.allowed.item4": "Bruk av våre tjenester som avtalt",
+                "terms.s5.title": "5. Ansvarsbegrensning",
+                "terms.s5.text1": "I den maksimale utstrekning tillatt av gjeldende lov, skal Digital Solutions ikke være ansvarlig for:",
+                "terms.s5.liability1.title": "Indirekte eller Følgeskader",
+                "terms.s5.liability1.desc": "Vi er ikke ansvarlige for noen indirekte, tilfeldige, spesielle eller følgeskader som oppstår fra bruken av våre tjenester.",
+                "terms.s5.liability2.title": "Tjenesteavbrudd",
+                "terms.s5.liability2.desc": "Vi garanterer ikke uavbrutt tilgang til nettstedet vårt. Midlertidige avbrudd kan oppstå av vedlikeholds- eller tekniske grunner.",
+                "terms.s5.liability3.title": "Tredjepartsinnhold",
+                "terms.s5.liability3.desc": "Vi er ikke ansvarlige for innholdet, nøyaktigheten eller praksisen til tredjepartsnettsteder som er lenket fra vårt nettsted.",
+                "terms.s5.liability4.title": "Prosjektresultater",
+                "terms.s5.liability4.desc": "Selv om vi streber etter eksellense, kan spesifikke forretningsresultater fra våre tjenester ikke garanteres da de avhenger av ulike eksterne faktorer.",
+                "terms.s5.max": "Det samlede ansvaret til Digital Solutions skal ikke overstige beløpet betalt av klienten for den spesifikke tjenesten i spørsmål, eller €1.000, avhengig av hva som er minst.",
+                "terms.s6.title": "6. Eksterne Lenker",
+                "terms.s6.text1": "Vårt nettsted kan inneholde lenker til tredjepartsnettsteder eller tjenester som ikke eies eller kontrolleres av Digital Solutions. Vi har ingen kontroll over og påtar oss intet ansvar for innholdet, personvernpolicyene eller praksisen til tredjepartsnettsteder.",
+                "terms.s6.text2": "Ved å bruke vårt nettsted, erkjenner og godtar du at Digital Solutions ikke skal være ansvarlig, direkte eller indirekte, for noen skade eller tap forårsaket av eller i forbindelse med bruken av slikt innhold, varer eller tjenester tilgjengelig på eller gjennom slike nettsteder.",
+                "terms.s7.title": "7. Oppsigelse",
+                "terms.s7.text1": "Vi kan avslutte eller suspendere din tilgang til våre tjenester umiddelbart, uten forvarsel eller ansvar, av hvilken som helst grunn, inkludert uten begrensning hvis du bryter disse vilkårene.",
+                "terms.s7.user.title": "Av Brukeren",
+                "terms.s7.user.desc": "Du kan avslutte bruken av våre tjenester når som helst ved å varsle oss skriftlig. Eventuelle pågående prosjekter vil bli håndtert i henhold til den spesifikke prosjektavtalen.",
+                "terms.s7.provider.title": "Av Digital Solutions",
+                "terms.s7.provider.desc": "Vi forbeholder oss retten til å suspendere eller avslutte tjenester for brudd på disse vilkårene, manglende betaling eller annen grunn etter vårt skjønn.",
+                "terms.s8.title": "8. Endringer i Vilkårene",
+                "terms.s8.text1": "Digital Solutions forbeholder seg retten til å endre eller erstatte disse vilkårene når som helst etter vårt eget skjønn. Hvis en revisjon er vesentlig, vil vi prøve å gi minst 30 dagers varsel før nye vilkår trer i kraft.",
+                "terms.s8.text2": "Hva som utgjør en vesentlig endring vil bli bestemt etter vårt eget skjønn. Ved å fortsette å få tilgang til eller bruke vår tjeneste etter at disse revisjonene trer i kraft, godtar du å være bundet av de reviderte vilkårene.",
+                "terms.s9.title": "9. Gjeldende Lov",
+                "terms.s9.text1": "Disse vilkårene skal reguleres og tolkes i samsvar med norsk lov, uten hensyn til dens konfliktslovsbestemmelser.",
+                "terms.s9.text2": "Enhver tvist som oppstår under eller i forbindelse med disse vilkårene skal være underlagt den eksklusive jurisdiksjonen til domstolene i Larvik, Norge.",
+                "terms.s9.dispute.title": "Tvisteløsning",
+                "terms.s9.dispute.desc": "I tilfelle av tvist, godtar begge parter å først forsøke å løse saken gjennom god tro-forhandlinger før rettslige skritt iverksettes.",
+                "terms.s10.title": "10. Kontaktinformasjon",
+                "terms.s10.text1": "Hvis du har spørsmål om disse bruksvilkårene, vennligst kontakt oss:",
+                "terms.s10.email.label": "E-post",
+                "terms.s10.phone.label": "Telefon",
+                "terms.s10.address.label": "Adresse",
+                "terms.s10.privacy": "Personvernpolicy",
+                "terms.s10.contact": "Kontakt Oss",
+                "footer.rights": "Alle rettigheter forbeholdt.",
+                "footer.description": "Strategiske digitale løsninger som leverer reelle resultater. Moderne webutvikling, avanserte algoritmer, intelligent automatisering og dataanalyse.",
+                "footer.quickLinks": "Hurtiglenker",
+                "footer.services": "Våre Tjenester",
+                "footer.legal": "Juridisk",
+                "footer.privacy": "Personvernpolicy",
+                "footer.terms": "Bruksvilkår",
+                "footer.cookies": "Cookie-policy",
+                "footer.made": "Bygget med presisjon og innovasjon",
+                "cookie.title": "Personvern & Cookies",
+                "cookie.text": "Vi bruker cookies for å analysere trafikk og tilpasse annonser. Du kan velge hvilke du vil godta. Les vår",
+                "cookie.policy": "Personvernerklæring",
+                "cookie.necessary": "Nødvendige",
+                "cookie.analytics": "Analyse",
+                "cookie.marketing": "Markedsføring",
+                "cookie.acceptAll": "Godta Alle",
+                "cookie.saveChoice": "Lagre Valg",
+                "cookie.reject": "Avvis"
+            }
+        };
+
+        const langMeta = {
+            en: { flag: "🇺", label: "EN", htmlLang: "en" },
+            pt: { flag: "🇷", label: "PT", htmlLang: "pt-BR" },
+            no: { flag: "🇳🇴", label: "NO", htmlLang: "nb" }
+        };
+
+        function detectLanguage() {
+            const stored = localStorage.getItem("ds-lang");
+            if (stored && translations[stored]) return stored;
+            const browser = (navigator.language || navigator.userLanguage || "en").toLowerCase();
+            if (browser.startsWith("pt")) return "pt";
+            if (browser.startsWith("nb") || browser.startsWith("nn") || browser.startsWith("no")) return "no";
+            return "en";
+        }
+
+        function applyLang(lang) {
+            const t = translations[lang];
+            const meta = langMeta[lang];
+            document.documentElement.lang = meta.htmlLang;
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (t[key] !== undefined) el.textContent = t[key];
+            });
+            const titleEl = document.querySelector("title[data-i18n]");
+            if (titleEl && t["meta.title"]) document.title = t["meta.title"];
+            const metaDesc = document.querySelector("meta[name='description'][data-i18n]");
+            if (metaDesc && t["meta.description"]) metaDesc.setAttribute("content", t["meta.description"]);
+            document.getElementById("currentFlag").textContent = meta.flag;
+            document.getElementById("currentLangLabel").textContent = meta.label;
+            document.querySelectorAll(".lang-option").forEach(opt => {
+                opt.classList.toggle("active", opt.dataset.lang === lang);
+            });
+            localStorage.setItem("ds-lang", lang);
+        }
+
+        const switcher = document.getElementById("langSwitcher");
+        const btn = document.getElementById("langBtn");
+
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            switcher.classList.toggle("open");
+        });
+
+        document.addEventListener("click", () => {
+            switcher.classList.remove("open");
+        });
+
+        document.querySelectorAll(".lang-option").forEach(opt => {
+            opt.addEventListener("click", (e) => {
+                e.stopPropagation();
+                applyLang(opt.dataset.lang);
+                switcher.classList.remove("open");
+            });
+        });
+
+        // Table of Contents Active State
+        const sections = document.querySelectorAll('[id^="section"]');
+        const tocItems = document.querySelectorAll('.toc-item');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Cookie Banner Logic
+        const cookieBanner = document.getElementById('cookieBanner');
+        const toggleAnalytics = document.getElementById('toggleAnalytics');
+        const toggleMarketing = document.getElementById('toggleMarketing');
+        const acceptAllBtn = document.getElementById('acceptAll');
+        const saveChoiceBtn = document.getElementById('saveChoice');
+        const rejectAllBtn = document.getElementById('rejectAll');
+
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1000);
+            } else {
+                const preferences = JSON.parse(consent);
+                if (preferences.analytics) enableAnalytics();
+                if (preferences.marketing) enableMarketing();
+            }
+        }
+
+        function setupToggles() {
+            [toggleAnalytics, toggleMarketing].forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    if (!this.classList.contains('disabled')) {
+                        this.classList.toggle('active');
+                    }
+                });
+            });
+        }
+
+        function getPreferences() {
+            return {
+                necessary: true,
+                analytics: toggleAnalytics.classList.contains('active'),
+                marketing: toggleMarketing.classList.contains('active'),
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        function savePreferences(preferences) {
+            localStorage.setItem('cookieConsent', JSON.stringify(preferences));
+            cookieBanner.classList.remove('show');
+            setTimeout(() => {
+                cookieBanner.classList.add('hidden');
+            }, 400);
+        }
+
+        acceptAllBtn.addEventListener('click', () => {
+            toggleAnalytics.classList.add('active');
+            toggleMarketing.classList.add('active');
+            const preferences = getPreferences();
+            savePreferences(preferences);
+            enableAnalytics();
+            enableMarketing();
+        });
+
+        saveChoiceBtn.addEventListener('click', () => {
+            const preferences = getPreferences();
+            savePreferences(preferences);
+            if (preferences.analytics) enableAnalytics();
+            if (preferences.marketing) enableMarketing();
+        });
+
+        rejectAllBtn.addEventListener('click', () => {
+            toggleAnalytics.classList.remove('active');
+            toggleMarketing.classList.remove('active');
+            const preferences = getPreferences();
+            savePreferences(preferences);
+        });
+
+        function enableAnalytics() {
+            console.log('Analytics cookies enabled');
+        }
+
+        function enableMarketing() {
+            console.log('Marketing cookies enabled');
+        }
+
+        setupToggles();
+        checkCookieConsent();
+        applyLang(detectLanguage());
+    </script>
+</body>
+</html>
