@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- FAVICON Digital Solutions -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Digital Solutions" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#3b82f6" />
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="meta.title">Cookie Policy | Digital Solutions</title>
+    <meta name="description" data-i18n="meta.description" content="Cookie Policy of Digital Solutions. Learn about the cookies we use, how they work, and how you can manage your preferences.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        
+        .nav-link { transition: all 0.3s ease; }
+        .nav-link:hover { color: #60A5FA; transform: translateY(-2px); }
+        
+        /* Language Switcher */
+        .lang-switcher { position: relative; }
+        .lang-btn {
+            display: flex; align-items: center; gap: 6px;
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+            color: #e4e4e7; padding: 7px 14px; border-radius: 99px;
+            font-size: 13px; font-weight: 600; cursor: pointer;
+            transition: background 0.2s, border-color 0.2s; white-space: nowrap;
+        }
+        .lang-btn:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.3); }
+        .lang-btn .flag { font-size: 16px; line-height: 1; }
+        .lang-btn .chevron { font-size: 10px; opacity: 0.7; transition: transform 0.2s; }
+        .lang-switcher.open .chevron { transform: rotate(180deg); }
+        .lang-dropdown {
+            display: none; position: absolute; top: calc(100% + 8px); right: 0;
+            background: #18181b; border: 1px solid #3f3f46; border-radius: 14px;
+            overflow: hidden; min-width: 170px; box-shadow: 0 16px 40px rgba(0,0,0,0.5); z-index: 999;
+        }
+        .lang-switcher.open .lang-dropdown { display: block; }
+        .lang-option {
+            display: flex; align-items: center; gap: 10px; padding: 11px 16px;
+            font-size: 13px; font-weight: 500; color: #d4d4d8; cursor: pointer; transition: background 0.15s;
+        }
+        .lang-option:hover { background: #27272a; }
+        .lang-option.active { background: #1d4ed820; color: #60a5fa; font-weight: 700; }
+        .lang-option .flag { font-size: 18px; }
+
+        /* Page Specific */
+        .cookie-hero { background: linear-gradient(135deg, #0A66C2 0%, #1E3A8A 100%); }
+        .cookie-card { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+        .section-divider { background: linear-gradient(90deg, transparent, #3b82f6, transparent); }
+        .toc-item { transition: all 0.3s; }
+        .toc-item:hover { background: rgba(59, 130, 246, 0.1); padding-left: 1.5rem; }
+        .toc-item.active { border-left: 3px solid #3b82f6; background: rgba(59, 130, 246, 0.05); padding-left: 1.25rem; }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-top: 2px solid #3b82f6; padding: 1.5rem; z-index: 9999;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+            transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .cookie-banner.show { transform: translateY(0); }
+        .cookie-banner.hidden { display: none; }
+        .cookie-toggle {
+            position: relative; width: 44px; height: 24px; background: #475569;
+            border-radius: 9999px; cursor: pointer; transition: background 0.3s;
+        }
+        .cookie-toggle.active { background: #3b82f6; }
+        .cookie-toggle.disabled { opacity: 0.5; cursor: not-allowed; }
+        .cookie-toggle-slider {
+            position: absolute; top: 2px; left: 2px; width: 20px; height: 20px;
+            background: white; border-radius: 50%; transition: transform 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .cookie-toggle.active .cookie-toggle-slider { transform: translateX(20px); }
+        .cookie-btn {
+            padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem;
+            transition: all 0.3s; cursor: pointer; border: none; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .cookie-btn-primary { background: #3b82f6; color: white; }
+        .cookie-btn-primary:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4); }
+        .cookie-btn-secondary { background: transparent; color: #3b82f6; border: 2px solid #3b82f6; }
+        .cookie-btn-secondary:hover { background: rgba(59, 130, 246, 0.1); }
+        .cookie-btn-tertiary { background: transparent; color: #94a3b8; border: 1px solid #334155; }
+        .cookie-btn-tertiary:hover { background: #334155; color: white; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #18181b; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100">
+
+    <!-- Navbar -->
+    <nav class="bg-zinc-900 border-b border-zinc-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-2xl">DS</div>
+                <h1 class="text-2xl font-semibold tracking-tight">Digital Solutions</h1>
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="index.html#sobre" class="nav-link" data-i18n="nav.about">About</a>
+                <a href="index.html#servicos" class="nav-link" data-i18n="nav.services">Services</a>
+                <a href="index.html#tecnologias" class="nav-link" data-i18n="nav.tech">Technologies</a>
+                <a href="index.html#projetos" class="nav-link" data-i18n="nav.projects">Projects</a>
+                <a href="contato.html" class="nav-link" data-i18n="nav.contact">Contact</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="lang-switcher" id="langSwitcher">
+                    <button class="lang-btn" id="langBtn" aria-label="Select language">
+                        <span class="flag" id="currentFlag">🇺</span>
+                        <span id="currentLangLabel">EN</span>
+                        <span class="chevron">▼</span>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <div class="lang-option" data-lang="en"><span class="flag">🇸</span> English</div>
+                        <div class="lang-option" data-lang="pt"><span class="flag">🇧🇷</span> Português</div>
+                        <div class="lang-option" data-lang="no"><span class="flag">🇳🇴</span> Norsk</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cookie Hero -->
+    <section class="cookie-hero py-20 md:py-28">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-3xl text-sm mb-6">
+                <i class="fas fa-cookie-bite text-blue-300"></i>
+                <span data-i18n="cookie.hero.badge">Transparency Document</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tighter max-w-4xl mx-auto mb-6" data-i18n="cookie.hero.title">Cookie Policy</h1>
+            <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-4" data-i18n="cookie.hero.sub">
+                Learn about the cookies we use, why we use them, and how you can control your preferences.
+            </p>
+            <p class="text-zinc-400 text-sm" data-i18n="cookie.hero.updated">Last updated: January 1, 2026</p>
+        </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="py-12 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="cookie-card p-8 rounded-3xl border border-zinc-800">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+                    <i class="fas fa-list text-blue-500"></i>
+                    <span data-i18n="cookie.toc.title">Table of Contents</span>
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <a href="#section1" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">1</span>
+                        <span data-i18n="cookie.toc.item1">Introduction</span>
+                    </a>
+                    <a href="#section2" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">2</span>
+                        <span data-i18n="cookie.toc.item2">What Are Cookies?</span>
+                    </a>
+                    <a href="#section3" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">3</span>
+                        <span data-i18n="cookie.toc.item3">Types of Cookies</span>
+                    </a>
+                    <a href="#section4" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">4</span>
+                        <span data-i18n="cookie.toc.item4">How We Use Cookies</span>
+                    </a>
+                    <a href="#section5" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">5</span>
+                        <span data-i18n="cookie.toc.item5">Third-Party Cookies</span>
+                    </a>
+                    <a href="#section6" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">6</span>
+                        <span data-i18n="cookie.toc.item6">Managing Preferences</span>
+                    </a>
+                    <a href="#section7" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">7</span>
+                        <span data-i18n="cookie.toc.item7">Retention Periods</span>
+                    </a>
+                    <a href="#section8" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">8</span>
+                        <span data-i18n="cookie.toc.item8">Your Rights</span>
+                    </a>
+                    <a href="#section9" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">9</span>
+                        <span data-i18n="cookie.toc.item9">Policy Updates</span>
+                    </a>
+                    <a href="#section10" class="toc-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-zinc-300 hover:text-blue-400">
+                        <span class="w-6 h-6 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-400 text-xs font-bold">10</span>
+                        <span data-i18n="cookie.toc.item10">Contact Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cookie Content -->
+    <section class="py-16 bg-zinc-950">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <!-- Section 1 -->
+            <div id="section1" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-500 text-xl"><i class="fas fa-info-circle"></i></div>
+                    <h2 class="text-3xl font-bold" data-i18n="cookie.s1.title">1. Introduction</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-zinc-300 leading-relaxed mb-4" data-i18n="cookie.s1.text1">
+                        This Cookie Policy explains how Digital Solutions uses cookies and similar tracking technologies when you visit our website (ds.barros.no). It describes what these technologies are, why we use them, and your rights to control them.
+                    </p>
+                    <p class="text-zinc-300 leading-relaxed" data-i18n="cookie.s1.text2">
+                        This policy should be read alongside our <a href="privacidade.html" class="text-blue-400 hover:underline">Privacy Policy</a>, which explains how we handle personal data in general.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div id="section2" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-emerald-600/10 rounded-2xl flex items-center justify-center text-emerald-500 text-xl"><i class="fas fa-question-circle"></i></div>
+                    <h2 class="text-3xl font-bold" data-i18n="cookie.s2.title">2. What Are Cookies?</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800 mb-6">
+                    <p class="text-zinc-300 leading-relaxed" data-i18n="cookie.s2.text1">
+                        Cookies are small text files stored on your device (computer, tablet, or mobile) when you visit a website. They allow the site to remember your actions and preferences over time, making your browsing experience more efficient and personalized.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800">
+                        <h3 class="font-semibold text-zinc-200 mb-2 flex items-center gap-2"><i class="fas fa-hdd text-blue-500"></i> <span data-i18n="cookie.s2.first.title">First-Party Cookies</span></h3>
+                        <p class="text-zinc-400 text-sm" data-i18n="cookie.s2.first.desc">Set directly by our website. Used for core functionality, security, and remembering your language/consent preferences.</p>
+                    </div>
+                    <div class="bg-zinc-900 p-5 rounded-2xl border border-zinc-800">
+                        <h3 class="font-semibold text-zinc-200 mb-2 flex items-center gap-2"><i class="fas fa-globe text-purple-500"></i> <span data-i18n="cookie.s2.third.title">Third-Party Cookies</span></h3>
+                        <p class="text-zinc-400 text-sm" data-i18n="cookie.s2.third.desc">Set by external services (like analytics providers). Used to understand how users interact with our site and improve performance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div id="section3" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-amber-600/10 rounded-2xl flex items-center justify-center text-amber-500 text-xl"><i class="fas fa-layer-group"></i></div>
+                    <h2 class="text-3xl font-bold" data-i18n="cookie.s3.title">3. Types of Cookies We Use</h2>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-800">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                            <h3 class="font-semibold text-zinc-200" data-i18n="cookie.s3.necessary.title">Strictly Necessary Cookies</h3>
+                            <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full" data-i18n="cookie.s3.necessary.label">Always Active</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm mb-3" data-i18n="cookie.s3.necessary.desc">Essential for the website to function properly. They enable core features like page navigation, secure access to forms, and load balancing.</p>
+                        <ul class="space-y-1 text-zinc-500 text-xs">
+                            <li>• Session identifier cookies</li>
+                            <li>• Security/CSRF protection cookies</li>
+                            <li>• Consent preference storage</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-800">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-3 h-3 bg-blue-500 rounded-full"></span>
+                            <h3 class="font-semibold text-zinc-200" data-i18n="cookie.s3.analytics.title">Analytics & Performance Cookies</h3>
+                            <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full" data-i18n="cookie.s3.analytics.label">Optional</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm mb-3" data-i18n="cookie.s3.analytics.desc">Collect anonymized data about how visitors use our site. This helps us understand which pages are most popular, how users navigate, and where improvements are needed.</p>
+                        <ul class="space-y-1 text-zinc-500 text-xs">
+                            <li>• Page view counters</li>
+                            <li>• Bounce rate tracking</li>
+                            <li>• Traffic source identification</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-800">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
+                            <h3 class="font-semibold text-zinc-200" data-i18n="cookie.s3.marketing.title">Marketing & Functional Cookies</h3>
+                            <span class="text-xs bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full" data-i18n="cookie.s3.marketing.label">Optional</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm mb-3" data-i18n="cookie.s3.marketing.desc">Used to deliver relevant content and remember your preferences (like language or region). May also be used to limit ad frequency or measure campaign effectiveness.</p>
+                        <ul class="space-y-1 text-zinc-500 text-xs">
+                            <li>• Language/region preferences</li>
+                            <li>• Video player settings</li>
+                            <li>• Social sharing integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div id="section4" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-purple-600/10 rounded-2xl flex items-center justify-center text-purple-500 text-xl"><i class="fas fa-cogs"></i></div>
+                    <h2 class="text-3xl font-bold" data-i18n="cookie.s4.title">4. How We Use Cookie Data</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-zinc-300 leading-relaxed mb-4" data-i18n="cookie.s4.text1">Data collected through cookies is used exclusively for:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-zinc-300 text-sm"><i class="fas fa-check text-blue-500"></i> <span data-i18n="cookie.s4.use1">Ensuring website security and functionality</span></li>
+                        <li class="flex items-center gap-3 text-zinc-300 text-sm"><i class="fas fa-check text-blue-500"></i> <span data-i18n="cookie.s4.use2">Analyzing traffic patterns to improve user experience</span></li>
+                        <li class="flex items-center gap-3 text-zinc-300 text-sm"><i class="fas fa-check text-blue-500"></i> <span data-i18n="cookie.s4.use3">Remembering your preferences and consent choices</span></li>
+                        <li class="flex items-center gap-3 text-zinc-300 text-sm"><i class="fas fa-check text-blue-500"></i> <span data-i18n="cookie.s4.use4">Optimizing content delivery and page load speeds</span></li>
+                    </ul>
+                    <p class="text-zinc-400 text-sm mt-4" data-i18n="cookie.s4.note"><strong>Note:</strong> We do not use cookies to identify you personally or to track your behavior across unrelated websites.</p>
+                </div>
+            </div>
+
+            <!-- Section 5 -->
+            <div id="section5" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-cyan-600/10 rounded-2xl flex items-center justify-center text-cyan-500 text-xl"><i class="fas fa-share-nodes"></i></div>
+                    <h2 class="text-3xl font-bold" data-i18n="cookie.s5.title">5. Third-Party Cookies</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-zinc-300 leading-relaxed mb-4" data-i18n="cookie.s5.text1">We may use trusted third-party services that set their own cookies. These providers are contractually obligated to use data only for the services we request.</p>
+                    <div class="grid md:grid-cols-2 gap-4 mt-4">
+                        <div class="p-4 bg-zinc-900 rounded-xl border border-zinc-800">
+                            <h3 class="font-semibold text-zinc-200 mb-1">Google Analytics</h3>
+                            <p class="text-zinc-400 text-xs">Anonymized traffic analysis and performance monitoring. Data is aggregated and stripped of personal identifiers.</p>
+                        </div>
+                        <div class="p-4 bg-zinc-900 rounded-xl border border-zinc-800">
+                            <h3 class="font-semibold text-zinc-200 mb-1">Cloudflare / Security</h3>
+                            <p class="text-zinc-400 text-xs">DDoS protection, bot management, and security threat analysis. No personal profiling is performed.</p>
+                        </div>
+                    </div>
+                    <p class="text-zinc-400 text-sm mt-4" data-i18n="cookie.s5.control">You can manage or block third-party cookies through your browser settings or our consent banner.</p>
+                </div>
+            </div>
+
+            <!-- Section 6 -->
+            <div id="section6" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-violet-600/10 rounded-2xl flex items-center justify-center text-violet-500 text-xl"><i class="fas fa-sliders"></i></div>
+                    <h2 class="text-3xl font-bold" data-i18n="cookie.s6.title">6. Managing Your Preferences</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800 mb-6">
+                    <p class="text-zinc-300 leading-relaxed" data-i18n="cookie.s6.text1">You have full control over non-essential cookies. You can change your preferences at any time using the methods below:</p>
+                </div>
+                <div class="grid gap-4">
+                    <div class="flex items-start gap-4 p-5 bg-zinc-900 rounded-2xl border border-zinc-800">
+                        <i class="fas fa-window-restore text-blue-500 mt-1"></i>
+                        <div>
+                            <h3 class="font-medium text-zinc-200 mb-1" data-i18n="cookie.s6.method1.title">Cookie Consent Banner</h3>
+                            <p class="text-zinc-400 text-sm" data-i18n="cookie.s6.method1.desc">Click the cookie icon at the bottom of the page to reopen the consent panel and adjust your choices.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-5 bg-zinc-900 rounded-2xl border border-zinc-800">
+                        <i class="fas fa-browser text-emerald-500 mt-1"></i>
+                        <div>
+                            <h3 class="font-medium text-zinc-200 mb-1" data-i18n="cookie.s6.method2.title">Browser Settings</h3>
+                            <p class="text-zinc-400 text-sm" data-i18n="cookie.s6.method2.desc">Most browsers allow you to view, delete, or block cookies. Note that blocking all cookies may affect website functionality.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-5 bg-zinc-900 rounded-2xl border border-zinc-800">
+                        <i class="fas fa-shield-halved text-purple-500 mt-1"></i>
+                        <div>
+                            <h3 class="font-medium text-zinc-200 mb-1" data-i18n="cookie.s6.method3.title">Private/Incognito Mode</h3>
+                            <p class="text-zinc-400 text-sm" data-i18n="cookie.s6.method3.desc">Browsing in private mode prevents cookies from being stored after you close the browser window.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7 -->
+            <div id="section7" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-rose-600/10 rounded-2xl flex items-center justify-center text-rose-500 text-xl"><i class="fas fa-clock"></i></div>
+                    <h2 class="text-3xl font-bold" data-i18n="cookie.s7.title">7. Cookie Retention Periods</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-zinc-300 leading-relaxed mb-4" data-i18n="cookie.s7.text1">Different cookies have different lifespans. We minimize retention to only what is necessary:</p>
+                    <table class="w-full text-sm text-left">
+                        <thead class="text-xs text-zinc-400 uppercase bg-zinc-900">
+                            <tr>
+                                <th class="px-4 py-3 rounded-l-lg" data-i18n="cookie.s7.table.type">Cookie Type</th>
+                                <th class="px-4 py-3" data-i18n="cookie.s7.table.duration">Duration</th>
+                                <th class="px-4 py-3 rounded-r-lg" data-i18n="cookie.s7.table.purpose">Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-zinc-800">
+                            <tr>
+                                <td class="px-4 py-3 font-medium text-zinc-200" data-i18n="cookie.s7.row1.type">Session</td>
+                                <td class="px-4 py-3 text-zinc-400" data-i18n="cookie.s7.row1.duration">Until browser closes</td>
+                                <td class="px-4 py-3 text-zinc-400" data-i18n="cookie.s7.row1.purpose">Security & navigation</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-medium text-zinc-200" data-i18n="cookie.s7.row2.type">Consent Preference</td>
+                                <td class="px-4 py-3 text-zinc-400" data-i18n="cookie.s7.row2.duration">12 months</td>
+                                <td class="px-4 py-3 text-zinc-400" data-i18n="cookie.s7.row2.purpose">Remember your choices</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-medium text-zinc-200" data-i18n="cookie.s7.row3.type">Analytics</td>
+                                <td class="px-4 py-3 text-zinc-400" data-i18n="cookie.s7.row3.duration">14 months</td>
+                                <td class="px-4 py-3 text-zinc-400" data-i18n="cookie.s7.row3.purpose">Traffic analysis</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-medium text-zinc-200" data-i18n="cookie.s7.row4.type">Functional</td>
+                                <td class="px-4 py-3 text-zinc-400" data-i18n="cookie.s7.row4.duration">6 months</td>
+                                <td class="px-4 py-3 text-zinc-400" data-i18n="cookie.s7.row4.purpose">Language & region</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section 8 -->
+            <div id="section8" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-indigo-600/10 rounded-2xl flex items-center justify-center text-indigo-500 text-xl"><i class="fas fa-fingerprint"></i></div>
+                    <h2 class="text-3xl font-bold" data-i18n="cookie.s8.title">8. Your Rights</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-zinc-300 leading-relaxed mb-4" data-i18n="cookie.s8.text1">Under GDPR and Norwegian law, you have the right to:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-zinc-300 text-sm"><i class="fas fa-check-circle text-blue-500"></i> <span data-i18n="cookie.s8.right1">Withdraw consent for non-essential cookies at any time</span></li>
+                        <li class="flex items-center gap-3 text-zinc-300 text-sm"><i class="fas fa-check-circle text-blue-500"></i> <span data-i18n="cookie.s8.right2">Request deletion of cookie data associated with your device</span></li>
+                        <li class="flex items-center gap-3 text-zinc-300 text-sm"><i class="fas fa-check-circle text-blue-500"></i> <span data-i18n="cookie.s8.right3">Object to analytics tracking</span></li>
+                        <li class="flex items-center gap-3 text-zinc-300 text-sm"><i class="fas fa-check-circle text-blue-500"></i> <span data-i18n="cookie.s8.right4">Lodge a complaint with Datatilsynet (Norwegian Data Protection Authority)</span></li>
+                    </ul>
+                    <div class="mt-6 p-4 bg-blue-600/10 border border-blue-600/20 rounded-xl">
+                        <p class="text-blue-300 text-sm flex items-start gap-3">
+                            <i class="fas fa-envelope mt-0.5"></i>
+                            <span data-i18n="cookie.s8.contact">To exercise these rights, contact us at <strong>post@barros.no</strong>. We respond within 30 days.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 9 -->
+            <div id="section9" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-teal-600/10 rounded-2xl flex items-center justify-center text-teal-500 text-xl"><i class="fas fa-arrows-rotate"></i></div>
+                    <h2 class="text-3xl font-bold" data-i18n="cookie.s9.title">9. Policy Updates</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-zinc-300 leading-relaxed" data-i18n="cookie.s9.text1">
+                        We may update this Cookie Policy periodically to reflect changes in technology, legislation, or our business practices. The "Last updated" date at the top of this page will indicate when changes were made. We encourage you to review this policy regularly.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 10 -->
+            <div id="section10" class="mb-16 scroll-mt-24">
+                <div class="section-divider h-px mb-8"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-500 text-xl"><i class="fas fa-headset"></i></div>
+                    <h2 class="text-3xl font-bold" data-i18n="cookie.s10.title">10. Contact Us</h2>
+                </div>
+                <div class="bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-zinc-300 leading-relaxed mb-6" data-i18n="cookie.s10.text1">For questions about our use of cookies, please reach out:</p>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <a href="mailto:post@barros.no" class="flex items-center gap-4 p-4 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-blue-500 transition-colors">
+                            <div class="w-10 h-10 bg-blue-600/20 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-blue-500"></i></div>
+                            <div><p class="text-zinc-500 text-xs" data-i18n="cookie.s10.email.label">Email</p><p class="text-zinc-200 font-medium text-sm">post@barros.no</p></div>
+                        </a>
+                        <a href="https://wa.me/4745678901" target="_blank" class="flex items-center gap-4 p-4 bg-zinc-900 rounded-xl border border-zinc-800 hover:border-green-500 transition-colors">
+                            <div class="w-10 h-10 bg-green-600/20 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fab fa-whatsapp text-green-500"></i></div>
+                            <div><p class="text-zinc-500 text-xs" data-i18n="cookie.s10.phone.label">Phone</p><p class="text-zinc-200 font-medium text-sm">+47 456 78 901</p></div>
+                        </a>
+                        <div class="flex items-center gap-4 p-4 bg-zinc-900 rounded-xl border border-zinc-800">
+                            <div class="w-10 h-10 bg-purple-600/20 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas fa-location-dot text-purple-500"></i></div>
+                            <div><p class="text-zinc-500 text-xs" data-i18n="cookie.s10.address.label">Address</p><p class="text-zinc-200 font-medium text-sm">Larvik, Norway</p></div>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                        <a href="privacidade.html" class="flex-1 text-center py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all"><i class="fas fa-shield-halved mr-2"></i> <span data-i18n="cookie.s10.privacy">Privacy Policy</span></a>
+                        <a href="termos.html" class="flex-1 text-center py-3 px-6 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold rounded-xl transition-all border border-zinc-700"><i class="fas fa-file-contract mr-2"></i> <span data-i18n="cookie.s10.terms">Terms of Use</span></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-16 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">DS</div>
+                        <h3 class="text-white font-semibold text-lg">Digital Solutions</h3>
+                    </div>
+                    <p class="text-zinc-400 text-sm mb-4" data-i18n="footer.description">Strategic digital solutions that deliver real results. Modern web development, advanced algorithms, intelligent automation and data analysis.</p>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/app-algoritmo" target="_blank" class="w-9 h-9 bg-zinc-800 hover:bg-blue-600 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-all"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/paulofernandodebarros/" target="_blank" class="w-9 h-9 bg-zinc-800 hover:bg-blue-600 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:post@barros.no" class="w-9 h-9 bg-zinc-800 hover:bg-blue-600 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-all"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6" data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html#sobre" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> <span data-i18n="nav.about">About</span></a></li>
+                        <li><a href="index.html#servicos" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> <span data-i18n="nav.services">Services</span></a></li>
+                        <li><a href="index.html#projetos" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> <span data-i18n="nav.projects">Projects</span></a></li>
+                        <li><a href="contato.html" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs"></i> <span data-i18n="nav.contact">Contact</span></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6" data-i18n="footer.services">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li class="text-zinc-400 text-sm">Web Development</li>
+                        <li class="text-zinc-400 text-sm">Algorithms & Software</li>
+                        <li class="text-zinc-400 text-sm">Process Automation</li>
+                        <li class="text-zinc-400 text-sm">Data Analysis & BI</li>
+                        <li class="text-zinc-400 text-sm">Logistics & Supply Chain</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6" data-i18n="footer.legal">Legal</h4>
+                    <ul class="space-y-4">
+                        <li><a href="privacidade.html" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors"><span data-i18n="footer.privacy">Privacy Policy</span></a></li>
+                        <li><a href="termos.html" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors"><span data-i18n="footer.terms">Terms of Use</span></a></li>
+                        <li><a href="cookies.html" class="text-blue-400 font-medium text-sm transition-colors"><span data-i18n="footer.cookies">Cookie Policy</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-zinc-800 pt-8 mt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-zinc-500 text-sm">© 2026 Digital Solutions. <span data-i18n="footer.rights">All rights reserved.</span></p>
+                    <p class="text-zinc-500 text-sm flex items-center gap-2"><i class="fas fa-code text-blue-500"></i> <span data-i18n="footer.made">Built with precision and innovation</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
+                <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-cookie-bite text-blue-500 text-xl"></i>
+                        <h3 class="text-blue-400 font-bold text-lg uppercase tracking-wide" data-i18n="cookie.banner.title">Privacy & Cookies</h3>
+                    </div>
+                    <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+                        <span data-i18n="cookie.banner.text">We use cookies to analyze traffic and personalize ads. You can choose which ones to accept. Read our</span>
+                        <a href="privacidade.html" class="text-blue-400 hover:text-blue-300 underline transition-colors" data-i18n="cookie.banner.policy">Privacy Policy</a>.
+                    </p>
+                    <div class="flex flex-wrap gap-6">
+                        <div class="flex items-center gap-3">
+                            <div class="cookie-toggle disabled" id="toggleNecessary"><div class="cookie-toggle-slider"></div></div>
+                            <span class="text-zinc-400 text-sm" data-i18n="cookie.necessary">Necessary</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="cookie-toggle active" id="toggleAnalytics" data-cookie="analytics"><div class="cookie-toggle-slider"></div></div>
+                            <span class="text-zinc-400 text-sm" data-i18n="cookie.analytics">Analytics</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="cookie-toggle active" id="toggleMarketing" data-cookie="marketing"><div class="cookie-toggle-slider"></div></div>
+                            <span class="text-zinc-400 text-sm" data-i18n="cookie.marketing">Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <button class="cookie-btn cookie-btn-primary" id="acceptAll" data-i18n="cookie.acceptAll">Accept All</button>
+                    <button class="cookie-btn cookie-btn-secondary" id="saveChoice" data-i18n="cookie.saveChoice">Save Choice</button>
+                    <button class="cookie-btn cookie-btn-tertiary" id="rejectAll" data-i18n="cookie.reject">Reject</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                "meta.title": "Cookie Policy | Digital Solutions",
+                "meta.description": "Cookie Policy of Digital Solutions. Learn about the cookies we use, how they work, and how you can manage your preferences.",
+                "nav.about": "About", "nav.services": "Services", "nav.tech": "Technologies", "nav.projects": "Projects", "nav.contact": "Contact",
+                "cookie.hero.badge": "Transparency Document", "cookie.hero.title": "Cookie Policy",
+                "cookie.hero.sub": "Learn about the cookies we use, why we use them, and how you can control your preferences.",
+                "cookie.hero.updated": "Last updated: January 1, 2026",
+                "cookie.toc.title": "Table of Contents",
+                "cookie.toc.item1": "Introduction", "cookie.toc.item2": "What Are Cookies?", "cookie.toc.item3": "Types of Cookies",
+                "cookie.toc.item4": "How We Use Cookies", "cookie.toc.item5": "Third-Party Cookies", "cookie.toc.item6": "Managing Preferences",
+                "cookie.toc.item7": "Retention Periods", "cookie.toc.item8": "Your Rights", "cookie.toc.item9": "Policy Updates", "cookie.toc.item10": "Contact Us",
+                "cookie.s1.title": "1. Introduction",
+                "cookie.s1.text1": "This Cookie Policy explains how Digital Solutions uses cookies and similar tracking technologies when you visit our website (ds.barros.no). It describes what these technologies are, why we use them, and your rights to control them.",
+                "cookie.s1.text2": "This policy should be read alongside our Privacy Policy, which explains how we handle personal data in general.",
+                "cookie.s2.title": "2. What Are Cookies?",
+                "cookie.s2.text1": "Cookies are small text files stored on your device (computer, tablet, or mobile) when you visit a website. They allow the site to remember your actions and preferences over time, making your browsing experience more efficient and personalized.",
+                "cookie.s2.first.title": "First-Party Cookies", "cookie.s2.first.desc": "Set directly by our website. Used for core functionality, security, and remembering your language/consent preferences.",
+                "cookie.s2.third.title": "Third-Party Cookies", "cookie.s2.third.desc": "Set by external services (like analytics providers). Used to understand how users interact with our site and improve performance.",
+                "cookie.s3.title": "3. Types of Cookies We Use",
+                "cookie.s3.necessary.title": "Strictly Necessary Cookies", "cookie.s3.necessary.label": "Always Active",
+                "cookie.s3.necessary.desc": "Essential for the website to function properly. They enable core features like page navigation, secure access to forms, and load balancing.",
+                "cookie.s3.analytics.title": "Analytics & Performance Cookies", "cookie.s3.analytics.label": "Optional",
+                "cookie.s3.analytics.desc": "Collect anonymized data about how visitors use our site. This helps us understand which pages are most popular, how users navigate, and where improvements are needed.",
+                "cookie.s3.marketing.title": "Marketing & Functional Cookies", "cookie.s3.marketing.label": "Optional",
+                "cookie.s3.marketing.desc": "Used to deliver relevant content and remember your preferences (like language or region). May also be used to limit ad frequency or measure campaign effectiveness.",
+                "cookie.s4.title": "4. How We Use Cookie Data",
+                "cookie.s4.text1": "Data collected through cookies is used exclusively for:",
+                "cookie.s4.use1": "Ensuring website security and functionality",
+                "cookie.s4.use2": "Analyzing traffic patterns to improve user experience",
+                "cookie.s4.use3": "Remembering your preferences and consent choices",
+                "cookie.s4.use4": "Optimizing content delivery and page load speeds",
+                "cookie.s4.note": "<strong>Note:</strong> We do not use cookies to identify you personally or to track your behavior across unrelated websites.",
+                "cookie.s5.title": "5. Third-Party Cookies",
+                "cookie.s5.text1": "We may use trusted third-party services that set their own cookies. These providers are contractually obligated to use data only for the services we request.",
+                "cookie.s5.control": "You can manage or block third-party cookies through your browser settings or our consent banner.",
+                "cookie.s6.title": "6. Managing Your Preferences",
+                "cookie.s6.text1": "You have full control over non-essential cookies. You can change your preferences at any time using the methods below:",
+                "cookie.s6.method1.title": "Cookie Consent Banner", "cookie.s6.method1.desc": "Click the cookie icon at the bottom of the page to reopen the consent panel and adjust your choices.",
+                "cookie.s6.method2.title": "Browser Settings", "cookie.s6.method2.desc": "Most browsers allow you to view, delete, or block cookies. Note that blocking all cookies may affect website functionality.",
+                "cookie.s6.method3.title": "Private/Incognito Mode", "cookie.s6.method3.desc": "Browsing in private mode prevents cookies from being stored after you close the browser window.",
+                "cookie.s7.title": "7. Cookie Retention Periods",
+                "cookie.s7.text1": "Different cookies have different lifespans. We minimize retention to only what is necessary:",
+                "cookie.s7.table.type": "Cookie Type", "cookie.s7.table.duration": "Duration", "cookie.s7.table.purpose": "Purpose",
+                "cookie.s7.row1.type": "Session", "cookie.s7.row1.duration": "Until browser closes", "cookie.s7.row1.purpose": "Security & navigation",
+                "cookie.s7.row2.type": "Consent Preference", "cookie.s7.row2.duration": "12 months", "cookie.s7.row2.purpose": "Remember your choices",
+                "cookie.s7.row3.type": "Analytics", "cookie.s7.row3.duration": "14 months", "cookie.s7.row3.purpose": "Traffic analysis",
+                "cookie.s7.row4.type": "Functional", "cookie.s7.row4.duration": "6 months", "cookie.s7.row4.purpose": "Language & region",
+                "cookie.s8.title": "8. Your Rights",
+                "cookie.s8.text1": "Under GDPR and Norwegian law, you have the right to:",
+                "cookie.s8.right1": "Withdraw consent for non-essential cookies at any time",
+                "cookie.s8.right2": "Request deletion of cookie data associated with your device",
+                "cookie.s8.right3": "Object to analytics tracking",
+                "cookie.s8.right4": "Lodge a complaint with Datatilsynet (Norwegian Data Protection Authority)",
+                "cookie.s8.contact": "To exercise these rights, contact us at <strong>post@barros.no</strong>. We respond within 30 days.",
+                "cookie.s9.title": "9. Policy Updates",
+                "cookie.s9.text1": "We may update this Cookie Policy periodically to reflect changes in technology, legislation, or our business practices. The \"Last updated\" date at the top of this page will indicate when changes were made. We encourage you to review this policy regularly.",
+                "cookie.s10.title": "10. Contact Us",
+                "cookie.s10.text1": "For questions about our use of cookies, please reach out:",
+                "cookie.s10.email.label": "Email", "cookie.s10.phone.label": "Phone", "cookie.s10.address.label": "Address",
+                "cookie.s10.privacy": "Privacy Policy", "cookie.s10.terms": "Terms of Use",
+                "footer.rights": "All rights reserved.",
+                "footer.description": "Strategic digital solutions that deliver real results. Modern web development, advanced algorithms, intelligent automation and data analysis.",
+                "footer.quickLinks": "Quick Links", "footer.services": "Our Services", "footer.legal": "Legal",
+                "footer.privacy": "Privacy Policy", "footer.terms": "Terms of Use", "footer.cookies": "Cookie Policy",
+                "footer.made": "Built with precision and innovation",
+                "cookie.banner.title": "Privacy & Cookies", "cookie.banner.text": "We use cookies to analyze traffic and personalize ads. You can choose which ones to accept. Read our",
+                "cookie.banner.policy": "Privacy Policy",
+                "cookie.necessary": "Necessary", "cookie.analytics": "Analytics", "cookie.marketing": "Marketing",
+                "cookie.acceptAll": "Accept All", "cookie.saveChoice": "Save Choice", "cookie.reject": "Reject"
+            },
+            pt: {
+                "meta.title": "Política de Cookies | Digital Solutions",
+                "meta.description": "Política de Cookies da Digital Solutions. Saiba sobre os cookies que usamos, como funcionam e como gerenciar suas preferências.",
+                "nav.about": "Sobre", "nav.services": "Serviços", "nav.tech": "Tecnologias", "nav.projects": "Projetos", "nav.contact": "Contato",
+                "cookie.hero.badge": "Documento de Transparência", "cookie.hero.title": "Política de Cookies",
+                "cookie.hero.sub": "Saiba sobre os cookies que usamos, por que os usamos e como você pode controlar suas preferências.",
+                "cookie.hero.updated": "Última atualização: 1 de janeiro de 2026",
+                "cookie.toc.title": "Índice",
+                "cookie.toc.item1": "Introdução", "cookie.toc.item2": "O que são Cookies?", "cookie.toc.item3": "Tipos de Cookies",
+                "cookie.toc.item4": "Como Usamos Cookies", "cookie.toc.item5": "Cookies de Terceiros", "cookie.toc.item6": "Gerenciamento de Preferências",
+                "cookie.toc.item7": "Períodos de Retenção", "cookie.toc.item8": "Seus Direitos", "cookie.toc.item9": "Atualizações", "cookie.toc.item10": "Contato",
+                "cookie.s1.title": "1. Introdução",
+                "cookie.s1.text1": "Esta Política de Cookies explica como a Digital Solutions usa cookies e tecnologias semelhantes quando você visita nosso site (ds.barros.no). Descreve o que são, por que os usamos e seus direitos de controle.",
+                "cookie.s1.text2": "Esta política deve ser lida junto com nossa Política de Privacidade, que explica como tratamos dados pessoais em geral.",
+                "cookie.s2.title": "2. O que são Cookies?",
+                "cookie.s2.text1": "Cookies são pequenos arquivos de texto armazenados no seu dispositivo (computador, tablet ou celular) quando você visita um site. Eles permitem que o site lembre de suas ações e preferências ao longo do tempo, tornando a navegação mais eficiente e personalizada.",
+                "cookie.s2.first.title": "Cookies Próprios", "cookie.s2.first.desc": "Definidos diretamente pelo nosso site. Usados para funcionalidade principal, segurança e lembrar suas preferências de idioma/consentimento.",
+                "cookie.s2.third.title": "Cookies de Terceiros", "cookie.s2.third.desc": "Definidos por serviços externos (como provedores de análise). Usados para entender como os usuários interagem com nosso site e melhorar o desempenho.",
+                "cookie.s3.title": "3. Tipos de Cookies que Usamos",
+                "cookie.s3.necessary.title": "Cookies Estritamente Necessários", "cookie.s3.necessary.label": "Sempre Ativo",
+                "cookie.s3.necessary.desc": "Essenciais para o funcionamento adequado do site. Habilitam recursos principais como navegação, acesso seguro a formulários e balanceamento de carga.",
+                "cookie.s3.analytics.title": "Cookies de Análise e Desempenho", "cookie.s3.analytics.label": "Opcional",
+                "cookie.s3.analytics.desc": "Coletam dados anonimizados sobre como os visitantes usam nosso site. Isso nos ajuda a entender quais páginas são mais populares e onde melhorias são necessárias.",
+                "cookie.s3.marketing.title": "Cookies de Marketing e Funcionais", "cookie.s3.marketing.label": "Opcional",
+                "cookie.s3.marketing.desc": "Usados para entregar conteúdo relevante e lembrar suas preferências (como idioma ou região). Também podem limitar frequência de anúncios ou medir eficácia de campanhas.",
+                "cookie.s4.title": "4. Como Usamos os Dados de Cookies",
+                "cookie.s4.text1": "Os dados coletados através de cookies são usados exclusivamente para:",
+                "cookie.s4.use1": "Garantir segurança e funcionalidade do site",
+                "cookie.s4.use2": "Analisar padrões de tráfego para melhorar a experiência do usuário",
+                "cookie.s4.use3": "Lembrar suas preferências e escolhas de consentimento",
+                "cookie.s4.use4": "Otimizar entrega de conteúdo e velocidade de carregamento",
+                "cookie.s4.note": "<strong>Nota:</strong> Não usamos cookies para identificá-lo pessoalmente ou rastrear seu comportamento em sites não relacionados.",
+                "cookie.s5.title": "5. Cookies de Terceiros",
+                "cookie.s5.text1": "Podemos usar serviços confiáveis de terceiros que definem seus próprios cookies. Esses provedores são contratualmente obrigados a usar dados apenas para os serviços que solicitamos.",
+                "cookie.s5.control": "Você pode gerenciar ou bloquear cookies de terceiros através das configurações do navegador ou do nosso banner de consentimento.",
+                "cookie.s6.title": "6. Gerenciamento de Preferências",
+                "cookie.s6.text1": "Você tem controle total sobre cookies não essenciais. Pode alterar suas preferências a qualquer momento usando os métodos abaixo:",
+                "cookie.s6.method1.title": "Banner de Consentimento", "cookie.s6.method1.desc": "Clique no ícone de cookie no rodapé da página para reabrir o painel e ajustar suas escolhas.",
+                "cookie.s6.method2.title": "Configurações do Navegador", "cookie.s6.method2.desc": "A maioria dos navegadores permite visualizar, excluir ou bloquear cookies. Bloquear todos pode afetar a funcionalidade do site.",
+                "cookie.s6.method3.title": "Modo Privado/Anônimo", "cookie.s6.method3.desc": "Navegar no modo privado impede que cookies sejam armazenados após fechar a janela.",
+                "cookie.s7.title": "7. Períodos de Retenção",
+                "cookie.s7.text1": "Diferentes cookies têm diferentes tempos de vida. Minimiza a retenção apenas ao necessário:",
+                "cookie.s7.table.type": "Tipo de Cookie", "cookie.s7.table.duration": "Duração", "cookie.s7.table.purpose": "Finalidade",
+                "cookie.s7.row1.type": "Sessão", "cookie.s7.row1.duration": "Até fechar o navegador", "cookie.s7.row1.purpose": "Segurança e navegação",
+                "cookie.s7.row2.type": "Preferência de Consentimento", "cookie.s7.row2.duration": "12 meses", "cookie.s7.row2.purpose": "Lembrar suas escolhas",
+                "cookie.s7.row3.type": "Análise", "cookie.s7.row3.duration": "14 meses", "cookie.s7.row3.purpose": "Análise de tráfego",
+                "cookie.s7.row4.type": "Funcional", "cookie.s7.row4.duration": "6 meses", "cookie.s7.row4.purpose": "Idioma e região",
+                "cookie.s8.title": "8. Seus Direitos",
+                "cookie.s8.text1": "Sob o GDPR e a lei norueguesa, você tem o direito de:",
+                "cookie.s8.right1": "Retirar consentimento para cookies não essenciais a qualquer momento",
+                "cookie.s8.right2": "Solicitar exclusão de dados de cookies associados ao seu dispositivo",
+                "cookie.s8.right3": "Opor-se ao rastreamento de análise",
+                "cookie.s8.right4": "Apresentar reclamação à Datatilsynet (Autoridade Norueguesa de Proteção de Dados)",
+                "cookie.s8.contact": "Para exercer esses direitos, entre em contato em <strong>post@barros.no</strong>. Respondemos em até 30 dias.",
+                "cookie.s9.title": "9. Atualizações da Política",
+                "cookie.s9.text1": "Podemos atualizar esta Política de Cookies periodicamente para refletir mudanças em tecnologia, legislação ou práticas comerciais. A data de \"Última atualização\" no topo indicará quando mudanças foram feitas.",
+                "cookie.s10.title": "10. Contato",
+                "cookie.s10.text1": "Para dúvidas sobre nosso uso de cookies, entre em contato:",
+                "cookie.s10.email.label": "Email", "cookie.s10.phone.label": "Telefone", "cookie.s10.address.label": "Endereço",
+                "cookie.s10.privacy": "Política de Privacidade", "cookie.s10.terms": "Termos de Uso",
+                "footer.rights": "Todos os direitos reservados.",
+                "footer.description": "Soluções digitais estratégicas que entregam resultados reais. Desenvolvimento web moderno, algoritmos avançados, automação inteligente e análise de dados.",
+                "footer.quickLinks": "Links Rápidos", "footer.services": "Nossos Serviços", "footer.legal": "Legal",
+                "footer.privacy": "Política de Privacidade", "footer.terms": "Termos de Uso", "footer.cookies": "Política de Cookies",
+                "footer.made": "Construído com precisão e inovação",
+                "cookie.banner.title": "Privacidade & Cookies", "cookie.banner.text": "Usamos cookies para analisar o tráfego e personalizar anúncios. Você pode escolher quais aceitar. Leia nossa",
+                "cookie.banner.policy": "Política de Privacidade",
+                "cookie.necessary": "Necessários", "cookie.analytics": "Análise", "cookie.marketing": "Marketing",
+                "cookie.acceptAll": "Aceitar Tudo", "cookie.saveChoice": "Salvar Escolha", "cookie.reject": "Rejeitar"
+            },
+            no: {
+                "meta.title": "Cookie-policy | Digital Solutions",
+                "meta.description": "Cookie-policy fra Digital Solutions. Lær om cookie-ene vi bruker, hvordan de fungerer og hvordan du kan administrere preferansene dine.",
+                "nav.about": "Om oss", "nav.services": "Tjenester", "nav.tech": "Teknologier", "nav.projects": "Prosjekter", "nav.contact": "Kontakt",
+                "cookie.hero.badge": "Åpenhetsdokument", "cookie.hero.title": "Cookie-policy",
+                "cookie.hero.sub": "Lær om cookie-ene vi bruker, hvorfor vi bruker dem og hvordan du kan kontrollere preferansene dine.",
+                "cookie.hero.updated": "Sist oppdatert: 1. januar 2026",
+                "cookie.toc.title": "Innholdsfortegnelse",
+                "cookie.toc.item1": "Introduksjon", "cookie.toc.item2": "Hva er Cookies?", "cookie.toc.item3": "Typer Cookies",
+                "cookie.toc.item4": "Hvordan vi bruker Cookies", "cookie.toc.item5": "Tredjeparts Cookies", "cookie.toc.item6": "Administrere Preferanser",
+                "cookie.toc.item7": "Lagringstid", "cookie.toc.item8": "Dine Rettigheter", "cookie.toc.item9": "Oppdateringer", "cookie.toc.item10": "Kontakt Oss",
+                "cookie.s1.title": "1. Introduksjon",
+                "cookie.s1.text1": "Denne cookie-policyen forklarer hvordan Digital Solutions bruker cookies og lignende sporingsteknologier når du besøker nettstedet vårt (ds.barros.no).",
+                "cookie.s1.text2": "Denne policyen bør leses sammen med vår Personvernpolicy, som forklarer hvordan vi håndterer personopplysninger generelt.",
+                "cookie.s2.title": "2. Hva er Cookies?",
+                "cookie.s2.text1": "Cookies er små tekstfiler lagret på enheten din (datamaskin, nettbrett eller mobil) når du besøker et nettsted. De lar nettstedet huske handlingene og preferansene dine over tid.",
+                "cookie.s2.first.title": "Førsteparts Cookies", "cookie.s2.first.desc": "Satt direkte av nettstedet vårt. Brukes til kjernefunksjonalitet, sikkerhet og huske språk/samtykkepreferanser.",
+                "cookie.s2.third.title": "Tredjeparts Cookies", "cookie.s2.third.desc": "Satt av eksterne tjenester. Brukes til å forstå hvordan brukere interagerer med nettstedet og forbedre ytelsen.",
+                "cookie.s3.title": "3. Typer Cookies vi bruker",
+                "cookie.s3.necessary.title": "Strengt Nødvendige Cookies", "cookie.s3.necessary.label": "Alltid Aktiv",
+                "cookie.s3.necessary.desc": "Essensielle for at nettstedet skal fungere. Muliggjør navigasjon, sikker tilgang til skjemaer og lastbalansering.",
+                "cookie.s3.analytics.title": "Analyse- & Ytelsescookies", "cookie.s3.analytics.label": "Valgfritt",
+                "cookie.s3.analytics.desc": "Samler anonymisert data om hvordan besøkende bruker nettstedet. Hjelper oss med å forstå populære sider og forbedringsområder.",
+                "cookie.s3.marketing.title": "Markedsførings- & Funksjonelle Cookies", "cookie.s3.marketing.label": "Valgfritt",
+                "cookie.s3.marketing.desc": "Brukes til å levere relevant innhold og huske preferanser (som språk eller region). Kan også begrense annonsefrekvens.",
+                "cookie.s4.title": "4. Hvordan vi bruker Cookie-data",
+                "cookie.s4.text1": "Data samlet inn gjennom cookies brukes utelukkende til:",
+                "cookie.s4.use1": "Sikre nettstedets sikkerhet og funksjonalitet",
+                "cookie.s4.use2": "Analysere trafikk for å forbedre brukeropplevelse",
+                "cookie.s4.use3": "Huske dine preferanser og samtykkevalg",
+                "cookie.s4.use4": "Optimalisere innholdslevering og lastehastigheter",
+                "cookie.s4.note": "<strong>Merk:</strong> Vi bruker ikke cookies til å identifisere deg personlig eller spore atferd på urelaterte nettsteder.",
+                "cookie.s5.title": "5. Tredjeparts Cookies",
+                "cookie.s5.text1": "Vi kan bruke pålitelige tredjepartstjenester som setter egne cookies. Disse leverandørene er kontraktsmessig forpliktet til kun å bruke data til tjenestene vi ber om.",
+                "cookie.s5.control": "Du kan administrere eller blokkere tredjepartscookies gjennom nettleserinnstillingene eller vårt samtykkebanner.",
+                "cookie.s6.title": "6. Administrere dine preferanser",
+                "cookie.s6.text1": "Du har full kontroll over ikke-essensielle cookies. Du kan endre preferanser når som helst ved hjelp av metodene nedenfor:",
+                "cookie.s6.method1.title": "Samtykkebanner", "cookie.s6.method1.desc": "Klikk cookie-ikonet nederst på siden for å åpne panelet og justere valgene dine.",
+                "cookie.s6.method2.title": "Nettleserinnstillinger", "cookie.s6.method2.desc": "De fleste nettlesere lar deg vise, slette eller blokkere cookies. Merk at blokkering av alle kan påvirke funksjonaliteten.",
+                "cookie.s6.method3.title": "Privat/Inkognitomodus", "cookie.s6.method3.desc": "Surfing i privat modus forhindrer at cookies lagres etter at du lukker nettleservinduet.",
+                "cookie.s7.title": "7. Lagringstid for Cookies",
+                "cookie.s7.text1": "Ulike cookies har ulik levetid. Vi minimerer lagring til kun det som er nødvendig:",
+                "cookie.s7.table.type": "Cookie-type", "cookie.s7.table.duration": "Varighet", "cookie.s7.table.purpose": "Formål",
+                "cookie.s7.row1.type": "Økt", "cookie.s7.row1.duration": "Til nettleser lukkes", "cookie.s7.row1.purpose": "Sikkerhet & navigasjon",
+                "cookie.s7.row2.type": "Samtykkepreferanse", "cookie.s7.row2.duration": "12 måneder", "cookie.s7.row2.purpose": "Huske dine valg",
+                "cookie.s7.row3.type": "Analyse", "cookie.s7.row3.duration": "14 måneder", "cookie.s7.row3.purpose": "Trafikkanalyse",
+                "cookie.s7.row4.type": "Funksjonell", "cookie.s7.row4.duration": "6 måneder", "cookie.s7.row4.purpose": "Språk & region",
+                "cookie.s8.title": "8. Dine Rettigheter",
+                "cookie.s8.text1": "Under GDPR og norsk lov har du rett til:",
+                "cookie.s8.right1": "Trekke tilbake samtykke for ikke-essensielle cookies når som helst",
+                "cookie.s8.right2": "Be om sletting av cookie-data knyttet til enheten din",
+                "cookie.s8.right3": "Gjøre innsigelse mot analysesporing",
+                "cookie.s8.right4": "Klage til Datatilsynet",
+                "cookie.s8.contact": "For å utøve disse rettighetene, kontakt oss på <strong>post@barros.no</strong>. Vi svarer innen 30 dager.",
+                "cookie.s9.title": "9. Policyoppdateringer",
+                "cookie.s9.text1": "Vi kan oppdatere denne cookie-policyen periodisk for å reflektere endringer i teknologi, lovgivning eller forretningspraksis. Datoen øverst indikerer når endringer ble gjort.",
+                "cookie.s10.title": "10. Kontakt Oss",
+                "cookie.s10.text1": "For spørsmål om vår bruk av cookies, vennligst ta kontakt:",
+                "cookie.s10.email.label": "E-post", "cookie.s10.phone.label": "Telefon", "cookie.s10.address.label": "Adresse",
+                "cookie.s10.privacy": "Personvernpolicy", "cookie.s10.terms": "Bruksvilkår",
+                "footer.rights": "Alle rettigheter forbeholdt.",
+                "footer.description": "Strategiske digitale løsninger som leverer reelle resultater. Moderne webutvikling, avanserte algoritmer, intelligent automatisering og dataanalyse.",
+                "footer.quickLinks": "Hurtiglenker", "footer.services": "Våre Tjenester", "footer.legal": "Juridisk",
+                "footer.privacy": "Personvernpolicy", "footer.terms": "Bruksvilkår", "footer.cookies": "Cookie-policy",
+                "footer.made": "Bygget med presisjon og innovasjon",
+                "cookie.banner.title": "Personvern & Cookies", "cookie.banner.text": "Vi bruker cookies for å analysere trafikk og tilpasse annonser. Du kan velge hvilke du vil godta. Les vår",
+                "cookie.banner.policy": "Personvernerklæring",
+                "cookie.necessary": "Nødvendige", "cookie.analytics": "Analyse", "cookie.marketing": "Markedsføring",
+                "cookie.acceptAll": "Godta Alle", "cookie.saveChoice": "Lagre Valg", "cookie.reject": "Avvis"
+            }
+        };
+
+        const langMeta = {
+            en: { flag: "🇸", label: "EN", htmlLang: "en" },
+            pt: { flag: "🇧🇷", label: "PT", htmlLang: "pt-BR" },
+            no: { flag: "🇳🇴", label: "NO", htmlLang: "nb" }
+        };
+
+        function detectLanguage() {
+            const stored = localStorage.getItem("ds-lang");
+            if (stored && translations[stored]) return stored;
+            const browser = (navigator.language || navigator.userLanguage || "en").toLowerCase();
+            if (browser.startsWith("pt")) return "pt";
+            if (browser.startsWith("nb") || browser.startsWith("nn") || browser.startsWith("no")) return "no";
+            return "en";
+        }
+
+        function applyLang(lang) {
+            const t = translations[lang];
+            const meta = langMeta[lang];
+            document.documentElement.lang = meta.htmlLang;
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (t[key] !== undefined) {
+                    if (key === 'cookie.s4.note' || key === 'cookie.s8.contact') {
+                        el.innerHTML = t[key];
+                    } else {
+                        el.textContent = t[key];
+                    }
+                }
+            });
+            const titleEl = document.querySelector("title[data-i18n]");
+            if (titleEl && t["meta.title"]) document.title = t["meta.title"];
+            const metaDesc = document.querySelector("meta[name='description'][data-i18n]");
+            if (metaDesc && t["meta.description"]) metaDesc.setAttribute("content", t["meta.description"]);
+            document.getElementById("currentFlag").textContent = meta.flag;
+            document.getElementById("currentLangLabel").textContent = meta.label;
+            document.querySelectorAll(".lang-option").forEach(opt => {
+                opt.classList.toggle("active", opt.dataset.lang === lang);
+            });
+            localStorage.setItem("ds-lang", lang);
+        }
+
+        const switcher = document.getElementById("langSwitcher");
+        const btn = document.getElementById("langBtn");
+        btn.addEventListener("click", (e) => { e.stopPropagation(); switcher.classList.toggle("open"); });
+        document.addEventListener("click", () => { switcher.classList.remove("open"); });
+        document.querySelectorAll(".lang-option").forEach(opt => {
+            opt.addEventListener("click", (e) => {
+                e.stopPropagation();
+                applyLang(opt.dataset.lang);
+                switcher.classList.remove("open");
+            });
+        });
+
+        const sections = document.querySelectorAll('[id^="section"]');
+        const tocItems = document.querySelectorAll('.toc-item');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (window.scrollY >= sectionTop) current = section.getAttribute('id');
+            });
+            tocItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + current) item.classList.add('active');
+            });
+        });
+
+        const cookieBanner = document.getElementById('cookieBanner');
+        const toggleAnalytics = document.getElementById('toggleAnalytics');
+        const toggleMarketing = document.getElementById('toggleMarketing');
+        const acceptAllBtn = document.getElementById('acceptAll');
+        const saveChoiceBtn = document.getElementById('saveChoice');
+        const rejectAllBtn = document.getElementById('rejectAll');
+
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) setTimeout(() => cookieBanner.classList.add('show'), 1000);
+            else {
+                const p = JSON.parse(consent);
+                if(p.analytics) enableAnalytics();
+                if(p.marketing) enableMarketing();
+            }
+        }
+        function setupToggles() {
+            [toggleAnalytics, toggleMarketing].forEach(t => t.addEventListener('click', function() {
+                if(!this.classList.contains('disabled')) this.classList.toggle('active');
+            }));
+        }
+        function getPreferences() {
+            return { necessary: true, analytics: toggleAnalytics.classList.contains('active'), marketing: toggleMarketing.classList.contains('active'), timestamp: new Date().toISOString() };
+        }
+        function savePreferences(p) {
+            localStorage.setItem('cookieConsent', JSON.stringify(p));
+            cookieBanner.classList.remove('show');
+            setTimeout(() => cookieBanner.classList.add('hidden'), 400);
+        }
+        acceptAllBtn.addEventListener('click', () => { toggleAnalytics.classList.add('active'); toggleMarketing.classList.add('active'); savePreferences(getPreferences()); enableAnalytics(); enableMarketing(); });
+        saveChoiceBtn.addEventListener('click', () => { savePreferences(getPreferences()); if(toggleAnalytics.classList.contains('active')) enableAnalytics(); if(toggleMarketing.classList.contains('active')) enableMarketing(); });
+        rejectAllBtn.addEventListener('click', () => { toggleAnalytics.classList.remove('active'); toggleMarketing.classList.remove('active'); savePreferences(getPreferences()); });
+        function enableAnalytics() { console.log('Analytics cookies enabled'); }
+        function enableMarketing() { console.log('Marketing cookies enabled'); }
+
+        setupToggles();
+        checkCookieConsent();
+        applyLang(detectLanguage());
+    </script>
+</body>
+</html>
