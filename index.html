@@ -6,7 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content=“Digital Solutions” />
+  <meta name="apple-mobile-web-app-title" content="Digital Solutions" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#c44536" />
     
@@ -125,7 +125,7 @@
                 <!-- Language Switcher -->
                 <div class="lang-switcher" id="langSwitcher">
                     <button class="lang-btn" id="langBtn" aria-label="Select language">
-                        <span class="flag" id="currentFlag">🇺🇸</span>
+                        <span class="flag" id="currentFlag">🇺</span>
                         <span id="currentLangLabel">EN</span>
                         <span class="chevron">▼</span>
                     </button>
@@ -430,10 +430,105 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black py-12 border-t border-zinc-800">
-        <div class="max-w-7xl mx-auto px-6 text-center text-zinc-400 text-sm">
-            <p>&copy; 2026 Digital Solutions. <span data-i18n="footer.rights">All rights reserved.</span></p>
-            <p class="mt-2" data-i18n="footer.tagline">Building the digital future with precision and innovation.</p>
+    <footer class="bg-black py-16 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Coluna 1: Logo e Informações -->
+                <div>
+                    <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-2xl mb-6">
+                        B
+                    </div>
+                    <h3 class="text-amber-400 text-sm font-semibold tracking-wider uppercase mb-4">
+                        Gestão Estratégica de Projetos
+                    </h3>
+                    <p class="text-zinc-400 text-sm mb-1">Paulo Fernando De Barros</p>
+                    <p class="text-zinc-500 text-sm">Larvik, Noruega</p>
+                </div>
+
+                <!-- Coluna 2: Links Rápidos -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6">Links Rápidos</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="https://ds.barros.no/contato" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Contato
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://ds.barros.no/acesso" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Acesso
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://ds.barros.no/portfolio" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                Portfólio
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Redes Sociais -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6">Redes Sociais</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="https://www.linkedin.com/in/paulofernandodebarros/" target="_blank" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-3">
+                                <i class="fab fa-linkedin"></i>
+                                LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com" target="_blank" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-3">
+                                <i class="fab fa-x-twitter"></i>
+                                X (Twitter)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://ds.barros.no/boreal" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-3">
+                                <i class="fas fa-book"></i>
+                                Boreal Publisher
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 4: Legal -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6">Legal</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="https://ds.barros.no/privacidade" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors">
+                                Política de Privacidade
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://ds.barros.no/termos" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors">
+                                Termos de Uso
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://ds.barros.no/cookies" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors">
+                                Aviso de Cookies
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Linha divisória -->
+            <div class="border-t border-zinc-800 pt-8 mt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-zinc-500 text-sm">
+                        © 2026 Paulo Fernando De Barros · Todos os direitos reservados
+                    </p>
+                    <p class="text-zinc-500 text-sm">
+                        Desenvolvido por <a href="https://ds.barros.no" class="text-blue-500 hover:text-blue-400 transition-colors">Digital Solutions</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -646,7 +741,7 @@
         //  Language config
         // ═══════════════════════════════════════════════
         const langMeta = {
-            en: { flag: "🇺🇸", label: "EN", htmlLang: "en" },
+            en: { flag: "🇺", label: "EN", htmlLang: "en" },
             pt: { flag: "🇧🇷", label: "PT", htmlLang: "pt-BR" },
             no: { flag: "🇳🇴", label: "NO", htmlLang: "nb" }
         };
