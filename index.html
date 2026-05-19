@@ -101,6 +101,94 @@
             font-weight: 700;
         }
         .lang-option .flag { font-size: 18px; }
+
+        /* ── Cookie Banner ── */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-top: 2px solid #c44536;
+            padding: 1.5rem;
+            z-index: 9999;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+        .cookie-banner.hidden {
+            display: none;
+        }
+        .cookie-toggle {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            background: #475569;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .cookie-toggle.active {
+            background: #c44536;
+        }
+        .cookie-toggle.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .cookie-toggle-slider {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .cookie-toggle.active .cookie-toggle-slider {
+            transform: translateX(20px);
+        }
+        .cookie-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cookie-btn-primary {
+            background: #c44536;
+            color: white;
+        }
+        .cookie-btn-primary:hover {
+            background: #a33a2d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(196, 69, 54, 0.4);
+        }
+        .cookie-btn-secondary {
+            background: transparent;
+            color: #c44536;
+            border: 2px solid #c44536;
+        }
+        .cookie-btn-secondary:hover {
+            background: rgba(196, 69, 54, 0.1);
+        }
+        .cookie-btn-tertiary {
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid #334155;
+        }
+        .cookie-btn-tertiary:hover {
+            background: #334155;
+            color: white;
+        }
     </style>
 </head>
 <body class="bg-zinc-950 text-zinc-100">
@@ -125,13 +213,13 @@
                 <!-- Language Switcher -->
                 <div class="lang-switcher" id="langSwitcher">
                     <button class="lang-btn" id="langBtn" aria-label="Select language">
-                        <span class="flag" id="currentFlag">🇺</span>
+                        <span class="flag" id="currentFlag">🇺🇸</span>
                         <span id="currentLangLabel">EN</span>
                         <span class="chevron">▼</span>
                     </button>
                     <div class="lang-dropdown" id="langDropdown">
                         <div class="lang-option" data-lang="en">
-                            <span class="flag">🇺🇸</span> English
+                            <span class="flag">🇺</span> English
                         </div>
                         <div class="lang-option" data-lang="pt">
                             <span class="flag">🇧🇷</span> Português
@@ -439,10 +527,10 @@
                         B
                     </div>
                     <h3 class="text-amber-400 text-sm font-semibold tracking-wider uppercase mb-4">
-                        Digital Solutions 
+                        Gestão Estratégica de Projetos
                     </h3>
-                    <p class="text-zinc-400 text-sm mb-1">Advanced algorithms</p>
-                    <p class="text-zinc-500 text-sm">Modern development</p>
+                    <p class="text-zinc-400 text-sm mb-1">Paulo Fernando De Barros</p>
+                    <p class="text-zinc-500 text-sm">Larvik, Noruega</p>
                 </div>
 
                 <!-- Coluna 2: Links Rápidos -->
@@ -532,6 +620,49 @@
         </div>
     </footer>
 
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
+                <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-cookie-bite text-red-500 text-xl"></i>
+                        <h3 class="text-red-400 font-bold text-lg uppercase tracking-wide" data-i18n="cookie.title">Privacidade & Cookies</h3>
+                    </div>
+                    <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+                        <span data-i18n="cookie.text">Usamos cookies para analisar o tráfego e personalizar anúncios. Você pode escolher quais aceitar. Leia nossa</span>
+                        <a href="https://ds.barros.no/privacidade" class="text-red-400 hover:text-red-300 underline transition-colors" data-i18n="cookie.policy">Política de Privacidade</a>.
+                    </p>
+                    <div class="flex flex-wrap gap-6">
+                        <div class="flex items-center gap-3">
+                            <div class="cookie-toggle disabled" id="toggleNecessary">
+                                <div class="cookie-toggle-slider"></div>
+                            </div>
+                            <span class="text-zinc-400 text-sm" data-i18n="cookie.necessary">Necessários</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="cookie-toggle active" id="toggleAnalytics" data-cookie="analytics">
+                                <div class="cookie-toggle-slider"></div>
+                            </div>
+                            <span class="text-zinc-400 text-sm" data-i18n="cookie.analytics">Análise</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="cookie-toggle active" id="toggleMarketing" data-cookie="marketing">
+                                <div class="cookie-toggle-slider"></div>
+                            </div>
+                            <span class="text-zinc-400 text-sm" data-i18n="cookie.marketing">Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <button class="cookie-btn cookie-btn-primary" id="acceptAll" data-i18n="cookie.acceptAll">Aceitar Tudo</button>
+                    <button class="cookie-btn cookie-btn-secondary" id="saveChoice" data-i18n="cookie.saveChoice">Salvar Escolha</button>
+                    <button class="cookie-btn cookie-btn-tertiary" id="rejectAll" data-i18n="cookie.reject">Rejeitar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ═══════════════════════════════════════════════
         //  i18n — Translation Dictionary
@@ -601,7 +732,16 @@
                 "contact.form.label": "Form",
                 "contact.form.btn": "Start a Project Now",
                 "footer.rights": "All rights reserved.",
-                "footer.tagline": "Building the digital future with precision and innovation."
+                "footer.tagline": "Building the digital future with precision and innovation.",
+                "cookie.title": "Privacy & Cookies",
+                "cookie.text": "We use cookies to analyze traffic and personalize ads. You can choose which ones to accept. Read our",
+                "cookie.policy": "Privacy Policy",
+                "cookie.necessary": "Necessary",
+                "cookie.analytics": "Analytics",
+                "cookie.marketing": "Marketing",
+                "cookie.acceptAll": "Accept All",
+                "cookie.saveChoice": "Save Choice",
+                "cookie.reject": "Reject"
             },
             pt: {
                 "meta.title": "Digital Solutions | Soluções Digitais Estratégicas",
@@ -667,7 +807,16 @@
                 "contact.form.label": "Formulário",
                 "contact.form.btn": "Iniciar um Projeto Agora",
                 "footer.rights": "Todos os direitos reservados.",
-                "footer.tagline": "Construindo o futuro digital com precisão e inovação."
+                "footer.tagline": "Construindo o futuro digital com precisão e inovação.",
+                "cookie.title": "Privacidade & Cookies",
+                "cookie.text": "Usamos cookies para analisar o tráfego e personalizar anúncios. Você pode escolher quais aceitar. Leia nossa",
+                "cookie.policy": "Política de Privacidade",
+                "cookie.necessary": "Necessários",
+                "cookie.analytics": "Análise",
+                "cookie.marketing": "Marketing",
+                "cookie.acceptAll": "Aceitar Tudo",
+                "cookie.saveChoice": "Salvar Escolha",
+                "cookie.reject": "Rejeitar"
             },
             no: {
                 "meta.title": "Digital Solutions | Strategiske Digitale Løsninger",
@@ -733,7 +882,16 @@
                 "contact.form.label": "Skjema",
                 "contact.form.btn": "Start et Prosjekt Nå",
                 "footer.rights": "Alle rettigheter forbeholdt.",
-                "footer.tagline": "Bygger den digitale fremtiden med presisjon og innovasjon."
+                "footer.tagline": "Bygger den digitale fremtiden med presisjon og innovasjon.",
+                "cookie.title": "Personvern & Cookies",
+                "cookie.text": "Vi bruker cookies for å analysere trafikk og tilpasse annonser. Du kan velge hvilke du vil godta. Les vår",
+                "cookie.policy": "Personvernerklæring",
+                "cookie.necessary": "Nødvendige",
+                "cookie.analytics": "Analyse",
+                "cookie.marketing": "Markedsføring",
+                "cookie.acceptAll": "Godta Alle",
+                "cookie.saveChoice": "Lagre Valg",
+                "cookie.reject": "Avvis"
             }
         };
 
@@ -741,7 +899,7 @@
         //  Language config
         // ═══════════════════════════════════════════════
         const langMeta = {
-            en: { flag: "🇺", label: "EN", htmlLang: "en" },
+            en: { flag: "🇺🇸", label: "EN", htmlLang: "en" },
             pt: { flag: "🇧🇷", label: "PT", htmlLang: "pt-BR" },
             no: { flag: "🇳🇴", label: "NO", htmlLang: "nb" }
         };
@@ -831,6 +989,104 @@
                 }
             });
         });
+
+        // ═══════════════════════════════════════════════
+        //  Cookie Banner Logic
+        // ═══════════════════════════════════════════════
+        const cookieBanner = document.getElementById('cookieBanner');
+        const toggleAnalytics = document.getElementById('toggleAnalytics');
+        const toggleMarketing = document.getElementById('toggleMarketing');
+        const acceptAllBtn = document.getElementById('acceptAll');
+        const saveChoiceBtn = document.getElementById('saveChoice');
+        const rejectAllBtn = document.getElementById('rejectAll');
+
+        // Check if user already made a choice
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                // Show banner after a short delay
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1000);
+            } else {
+                // Apply saved preferences
+                const preferences = JSON.parse(consent);
+                if (preferences.analytics) enableAnalytics();
+                if (preferences.marketing) enableMarketing();
+            }
+        }
+
+        // Toggle click handlers
+        function setupToggles() {
+            [toggleAnalytics, toggleMarketing].forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    if (!this.classList.contains('disabled')) {
+                        this.classList.toggle('active');
+                    }
+                });
+            });
+        }
+
+        // Get current preferences
+        function getPreferences() {
+            return {
+                necessary: true, // Always true
+                analytics: toggleAnalytics.classList.contains('active'),
+                marketing: toggleMarketing.classList.contains('active'),
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        // Save preferences
+        function savePreferences(preferences) {
+            localStorage.setItem('cookieConsent', JSON.stringify(preferences));
+            cookieBanner.classList.remove('show');
+            setTimeout(() => {
+                cookieBanner.classList.add('hidden');
+            }, 400);
+        }
+
+        // Accept all
+        acceptAllBtn.addEventListener('click', () => {
+            toggleAnalytics.classList.add('active');
+            toggleMarketing.classList.add('active');
+            const preferences = getPreferences();
+            savePreferences(preferences);
+            enableAnalytics();
+            enableMarketing();
+        });
+
+        // Save choice
+        saveChoiceBtn.addEventListener('click', () => {
+            const preferences = getPreferences();
+            savePreferences(preferences);
+            if (preferences.analytics) enableAnalytics();
+            if (preferences.marketing) enableMarketing();
+        });
+
+        // Reject all (only necessary cookies)
+        rejectAllBtn.addEventListener('click', () => {
+            toggleAnalytics.classList.remove('active');
+            toggleMarketing.classList.remove('active');
+            const preferences = getPreferences();
+            savePreferences(preferences);
+        });
+
+        // Enable analytics cookies
+        function enableAnalytics() {
+            console.log('Analytics cookies enabled');
+            // Add your analytics scripts here (Google Analytics, etc.)
+        }
+
+        // Enable marketing cookies
+        function enableMarketing() {
+            console.log('Marketing cookies enabled');
+            // Add your marketing scripts here (Facebook Pixel, etc.)
+        }
+
+        // Initialize cookie banner
+        setupToggles();
+        checkCookieConsent();
 
         // ═══════════════════════════════════════════════
         //  Init
