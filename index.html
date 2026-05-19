@@ -109,7 +109,7 @@
             left: 0;
             right: 0;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            border-top: 2px solid #c44536;
+            border-top: 2px solid #3b82f6;
             padding: 1.5rem;
             z-index: 9999;
             box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
@@ -132,7 +132,7 @@
             transition: background 0.3s;
         }
         .cookie-toggle.active {
-            background: #c44536;
+            background: #3b82f6;
         }
         .cookie-toggle.disabled {
             opacity: 0.5;
@@ -164,21 +164,21 @@
             letter-spacing: 0.05em;
         }
         .cookie-btn-primary {
-            background: #c44536;
+            background: #3b82f6;
             color: white;
         }
         .cookie-btn-primary:hover {
-            background: #a33a2d;
+            background: #2563eb;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(196, 69, 54, 0.4);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
         }
         .cookie-btn-secondary {
             background: transparent;
-            color: #c44536;
-            border: 2px solid #c44536;
+            color: #3b82f6;
+            border: 2px solid #3b82f6;
         }
         .cookie-btn-secondary:hover {
-            background: rgba(196, 69, 54, 0.1);
+            background: rgba(59, 130, 246, 0.1);
         }
         .cookie-btn-tertiary {
             background: transparent;
@@ -219,7 +219,7 @@
                     </button>
                     <div class="lang-dropdown" id="langDropdown">
                         <div class="lang-option" data-lang="en">
-                            <span class="flag">🇺</span> English
+                            <span class="flag">🇺🇸</span> English
                         </div>
                         <div class="lang-option" data-lang="pt">
                             <span class="flag">🇧🇷</span> Português
@@ -521,85 +521,88 @@
     <footer class="bg-black py-16 border-t border-zinc-800">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                <!-- Coluna 1: Logo e Informações -->
+                <!-- Coluna 1: Logo e Informações Digital Solutions -->
                 <div>
-                    <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-2xl mb-6">
-                        B
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">DS</div>
+                        <h3 class="text-white font-semibold text-lg">Digital Solutions</h3>
                     </div>
-                    <h3 class="text-amber-400 text-sm font-semibold tracking-wider uppercase mb-4">
-                        Gestão Estratégica de Projetos
-                    </h3>
-                    <p class="text-zinc-400 text-sm mb-1">Paulo Fernando De Barros</p>
-                    <p class="text-zinc-500 text-sm">Larvik, Noruega</p>
+                    <p class="text-zinc-400 text-sm mb-4" data-i18n="footer.description">
+                        Strategic digital solutions that deliver real results. Modern web development, advanced algorithms, intelligent automation and data analysis.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/app-algoritmo" target="_blank" class="w-9 h-9 bg-zinc-800 hover:bg-blue-600 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-all">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/paulofernandodebarros/" target="_blank" class="w-9 h-9 bg-zinc-800 hover:bg-blue-600 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-all">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:post@barros.no" class="w-9 h-9 bg-zinc-800 hover:bg-blue-600 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white transition-all">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Coluna 2: Links Rápidos -->
                 <div>
-                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6">Links Rápidos</h4>
+                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6" data-i18n="footer.quickLinks">Quick Links</h4>
                     <ul class="space-y-4">
                         <li>
-                            <a href="https://ds.barros.no/contato" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
+                            <a href="#sobre" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
                                 <i class="fas fa-chevron-right text-xs"></i>
-                                Contato
+                                <span data-i18n="nav.about">About</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://ds.barros.no/acesso" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
+                            <a href="#servicos" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
                                 <i class="fas fa-chevron-right text-xs"></i>
-                                Acesso
+                                <span data-i18n="nav.services">Services</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://ds.barros.no/portfolio" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
+                            <a href="#projetos" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
                                 <i class="fas fa-chevron-right text-xs"></i>
-                                Portfólio
+                                <span data-i18n="nav.projects">Projects</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contato" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-2">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                <span data-i18n="nav.contact">Contact</span>
                             </a>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Coluna 3: Redes Sociais -->
+                <!-- Coluna 3: Serviços -->
                 <div>
-                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6">Redes Sociais</h4>
-                    <ul class="space-y-4">
-                        <li>
-                            <a href="https://www.linkedin.com/in/paulofernandodebarros/" target="_blank" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-3">
-                                <i class="fab fa-linkedin"></i>
-                                LinkedIn
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com" target="_blank" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-3">
-                                <i class="fab fa-x-twitter"></i>
-                                X (Twitter)
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://ds.barros.no/boreal" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors flex items-center gap-3">
-                                <i class="fas fa-book"></i>
-                                Boreal Publisher
-                            </a>
-                        </li>
+                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6" data-i18n="footer.services">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li class="text-zinc-400 text-sm">Web Development</li>
+                        <li class="text-zinc-400 text-sm">Algorithms & Software</li>
+                        <li class="text-zinc-400 text-sm">Process Automation</li>
+                        <li class="text-zinc-400 text-sm">Data Analysis & BI</li>
+                        <li class="text-zinc-400 text-sm">Logistics & Supply Chain</li>
                     </ul>
                 </div>
 
                 <!-- Coluna 4: Legal -->
                 <div>
-                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6">Legal</h4>
+                    <h4 class="text-white font-semibold text-sm tracking-wider uppercase mb-6" data-i18n="footer.legal">Legal</h4>
                     <ul class="space-y-4">
                         <li>
                             <a href="https://ds.barros.no/privacidade" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors">
-                                Política de Privacidade
+                                <span data-i18n="footer.privacy">Privacy Policy</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://ds.barros.no/termos" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors">
-                                Termos de Uso
+                                <span data-i18n="footer.terms">Terms of Use</span>
                             </a>
                         </li>
                         <li>
                             <a href="https://ds.barros.no/cookies" class="text-zinc-400 hover:text-blue-400 text-sm transition-colors">
-                                Aviso de Cookies
+                                <span data-i18n="footer.cookies">Cookie Policy</span>
                             </a>
                         </li>
                     </ul>
@@ -610,10 +613,11 @@
             <div class="border-t border-zinc-800 pt-8 mt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                     <p class="text-zinc-500 text-sm">
-                        © 2026 Paulo Fernando De Barros · Todos os direitos reservados
+                        © 2026 Digital Solutions. <span data-i18n="footer.rights">All rights reserved.</span>
                     </p>
-                    <p class="text-zinc-500 text-sm">
-                        Desenvolvido por <a href="https://ds.barros.no" class="text-blue-500 hover:text-blue-400 transition-colors">Digital Solutions</a>
+                    <p class="text-zinc-500 text-sm flex items-center gap-2">
+                        <i class="fas fa-code text-blue-500"></i>
+                        <span data-i18n="footer.made">Built with precision and innovation</span>
                     </p>
                 </div>
             </div>
@@ -626,25 +630,25 @@
             <div class="flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
                 <div class="flex-1">
                     <div class="flex items-center gap-2 mb-3">
-                        <i class="fas fa-cookie-bite text-red-500 text-xl"></i>
-                        <h3 class="text-red-400 font-bold text-lg uppercase tracking-wide" data-i18n="cookie.title">Privacidade & Cookies</h3>
+                        <i class="fas fa-cookie-bite text-blue-500 text-xl"></i>
+                        <h3 class="text-blue-400 font-bold text-lg uppercase tracking-wide" data-i18n="cookie.title">Privacy & Cookies</h3>
                     </div>
                     <p class="text-zinc-300 text-sm leading-relaxed mb-4">
-                        <span data-i18n="cookie.text">Usamos cookies para analisar o tráfego e personalizar anúncios. Você pode escolher quais aceitar. Leia nossa</span>
-                        <a href="https://ds.barros.no/privacidade" class="text-red-400 hover:text-red-300 underline transition-colors" data-i18n="cookie.policy">Política de Privacidade</a>.
+                        <span data-i18n="cookie.text">We use cookies to analyze traffic and personalize ads. You can choose which ones to accept. Read our</span>
+                        <a href="https://ds.barros.no/privacidade" class="text-blue-400 hover:text-blue-300 underline transition-colors" data-i18n="cookie.policy">Privacy Policy</a>.
                     </p>
                     <div class="flex flex-wrap gap-6">
                         <div class="flex items-center gap-3">
                             <div class="cookie-toggle disabled" id="toggleNecessary">
                                 <div class="cookie-toggle-slider"></div>
                             </div>
-                            <span class="text-zinc-400 text-sm" data-i18n="cookie.necessary">Necessários</span>
+                            <span class="text-zinc-400 text-sm" data-i18n="cookie.necessary">Necessary</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="cookie-toggle active" id="toggleAnalytics" data-cookie="analytics">
                                 <div class="cookie-toggle-slider"></div>
                             </div>
-                            <span class="text-zinc-400 text-sm" data-i18n="cookie.analytics">Análise</span>
+                            <span class="text-zinc-400 text-sm" data-i18n="cookie.analytics">Analytics</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="cookie-toggle active" id="toggleMarketing" data-cookie="marketing">
@@ -655,9 +659,9 @@
                     </div>
                 </div>
                 <div class="flex flex-wrap gap-3">
-                    <button class="cookie-btn cookie-btn-primary" id="acceptAll" data-i18n="cookie.acceptAll">Aceitar Tudo</button>
-                    <button class="cookie-btn cookie-btn-secondary" id="saveChoice" data-i18n="cookie.saveChoice">Salvar Escolha</button>
-                    <button class="cookie-btn cookie-btn-tertiary" id="rejectAll" data-i18n="cookie.reject">Rejeitar</button>
+                    <button class="cookie-btn cookie-btn-primary" id="acceptAll" data-i18n="cookie.acceptAll">Accept All</button>
+                    <button class="cookie-btn cookie-btn-secondary" id="saveChoice" data-i18n="cookie.saveChoice">Save Choice</button>
+                    <button class="cookie-btn cookie-btn-tertiary" id="rejectAll" data-i18n="cookie.reject">Reject</button>
                 </div>
             </div>
         </div>
@@ -732,7 +736,14 @@
                 "contact.form.label": "Form",
                 "contact.form.btn": "Start a Project Now",
                 "footer.rights": "All rights reserved.",
-                "footer.tagline": "Building the digital future with precision and innovation.",
+                "footer.description": "Strategic digital solutions that deliver real results. Modern web development, advanced algorithms, intelligent automation and data analysis.",
+                "footer.quickLinks": "Quick Links",
+                "footer.services": "Our Services",
+                "footer.legal": "Legal",
+                "footer.privacy": "Privacy Policy",
+                "footer.terms": "Terms of Use",
+                "footer.cookies": "Cookie Policy",
+                "footer.made": "Built with precision and innovation",
                 "cookie.title": "Privacy & Cookies",
                 "cookie.text": "We use cookies to analyze traffic and personalize ads. You can choose which ones to accept. Read our",
                 "cookie.policy": "Privacy Policy",
@@ -807,7 +818,14 @@
                 "contact.form.label": "Formulário",
                 "contact.form.btn": "Iniciar um Projeto Agora",
                 "footer.rights": "Todos os direitos reservados.",
-                "footer.tagline": "Construindo o futuro digital com precisão e inovação.",
+                "footer.description": "Soluções digitais estratégicas que entregam resultados reais. Desenvolvimento web moderno, algoritmos avançados, automação inteligente e análise de dados.",
+                "footer.quickLinks": "Links Rápidos",
+                "footer.services": "Nossos Serviços",
+                "footer.legal": "Legal",
+                "footer.privacy": "Política de Privacidade",
+                "footer.terms": "Termos de Uso",
+                "footer.cookies": "Política de Cookies",
+                "footer.made": "Construído com precisão e inovação",
                 "cookie.title": "Privacidade & Cookies",
                 "cookie.text": "Usamos cookies para analisar o tráfego e personalizar anúncios. Você pode escolher quais aceitar. Leia nossa",
                 "cookie.policy": "Política de Privacidade",
@@ -882,7 +900,14 @@
                 "contact.form.label": "Skjema",
                 "contact.form.btn": "Start et Prosjekt Nå",
                 "footer.rights": "Alle rettigheter forbeholdt.",
-                "footer.tagline": "Bygger den digitale fremtiden med presisjon og innovasjon.",
+                "footer.description": "Strategiske digitale løsninger som leverer reelle resultater. Moderne webutvikling, avanserte algoritmer, intelligent automatisering og dataanalyse.",
+                "footer.quickLinks": "Hurtiglenker",
+                "footer.services": "Våre Tjenester",
+                "footer.legal": "Juridisk",
+                "footer.privacy": "Personvernerklæring",
+                "footer.terms": "Bruksvilkår",
+                "footer.cookies": "Cookie-policy",
+                "footer.made": "Bygget med presisjon og innovasjon",
                 "cookie.title": "Personvern & Cookies",
                 "cookie.text": "Vi bruker cookies for å analysere trafikk og tilpasse annonser. Du kan velge hvilke du vil godta. Les vår",
                 "cookie.policy": "Personvernerklæring",
@@ -900,7 +925,7 @@
         // ═══════════════════════════════════════════════
         const langMeta = {
             en: { flag: "🇺🇸", label: "EN", htmlLang: "en" },
-            pt: { flag: "🇧🇷", label: "PT", htmlLang: "pt-BR" },
+            pt: { flag: "🇧", label: "PT", htmlLang: "pt-BR" },
             no: { flag: "🇳🇴", label: "NO", htmlLang: "nb" }
         };
 
